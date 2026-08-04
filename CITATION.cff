@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this atlas in research or a report, please cite it."
+title: "LLM Tool Atlas"
+type: dataset
+authors:
+  - family-names: "ÇOĞAL"
+    given-names: "Yunus"
+version: 0.1.0
+date-released: 2026-08-04
+license: 0BSD
+repository-code: "https://github.com/Yunushan/llm-tool-atlas"

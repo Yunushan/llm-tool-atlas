@@ -1,0 +1,35 @@
+name: Suggest a new entry
+description: Propose an active tool, gateway, runtime, or model family.
+title: "catalog: add "
+labels: [catalog, enhancement]
+body:
+  - type: dropdown
+    id: catalog
+    attributes:
+      label: Catalog
+      options:
+        - Tools
+        - Gateways and inference platforms
+        - Model families
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Product or family name
+    validations:
+      required: true
+  - type: textarea
+    id: fit
+    attributes:
+      label: Why does it fit the atlas?
+      description: Mention interface, target workflow, and what it adds beyond existing entries.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Official sources
+      description: Include product/docs, pricing, and license/model-card links when applicable.
+    validations:
+      required: true

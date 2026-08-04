@@ -1,0 +1,263 @@
+[
+  {
+    "id": "amazon-bedrock",
+    "name": "Amazon Bedrock",
+    "vendor": "Amazon Web Services",
+    "kind": "cloud-model-platform",
+    "delivery": "managed",
+    "byok": false,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing_note": "Model-, provider-, region-, and deployment-specific token or capacity pricing; selected batch inference is discounted. Imported models add serving costs.",
+    "strengths": ["Broad first- and third-party catalog", "AWS IAM, VPC, logging, guardrails, and regional controls", "custom model import and multiple capacity modes"],
+    "limitations": ["Complex region/model/feature matrix", "AWS lock-in", "not a neutral external-key gateway"],
+    "official_sources": [
+      {"label": "Overview", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html"},
+      {"label": "Pricing", "url": "https://aws.amazon.com/bedrock/pricing/"},
+      {"label": "Custom model import", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "cloudflare-ai-gateway",
+    "name": "Cloudflare AI Gateway",
+    "vendor": "Cloudflare",
+    "kind": "api-gateway",
+    "delivery": "managed",
+    "byok": true,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing_note": "Gateway and logging allowances depend on the Cloudflare plan; upstream model-provider charges remain separate. Confirm current free and paid limits on the official pricing page.",
+    "strengths": ["Caching, rate limiting, retries, fallbacks, logs, and analytics at the network edge", "supports multiple model providers and Workers AI", "simple proxy integration"],
+    "limitations": ["Managed Cloudflare control plane", "advanced limits and retention are plan-dependent", "provider feature normalization is not complete"],
+    "official_sources": [
+      {"label": "Docs", "url": "https://developers.cloudflare.com/ai-gateway/"},
+      {"label": "Pricing", "url": "https://developers.cloudflare.com/ai-gateway/reference/pricing/"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "fireworks-ai",
+    "name": "Fireworks AI",
+    "vendor": "Fireworks AI",
+    "kind": "inference-platform",
+    "delivery": "managed",
+    "byok": false,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing_note": "Per-model token pricing across Standard, Priority, Fast, batch, and dedicated modes. Cached input, batch, regional processing, and deployment tier change the rate.",
+    "strengths": ["Fast open-model inference", "serverless, fine-tuned, and dedicated deployments", "usage export and Prometheus metrics"],
+    "limitations": ["Not a neutral cross-provider BYOK router", "proprietary service", "model and feature availability differs by serving tier"],
+    "official_sources": [
+      {"label": "Overview", "url": "https://docs.fireworks.ai/serverless/overview"},
+      {"label": "Pricing", "url": "https://docs.fireworks.ai/serverless/pricing"},
+      {"label": "Usage export", "url": "https://docs.fireworks.ai/accounts/exporting-usage-and-costs"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "google-vertex-ai",
+    "name": "Google Vertex AI",
+    "vendor": "Google Cloud",
+    "kind": "cloud-model-platform",
+    "delivery": "managed",
+    "byok": false,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing_note": "Token-based Standard, Priority, Flex, and Batch pricing varies by model, region, and endpoint. Dedicated open/custom model deployments add infrastructure charges.",
+    "strengths": ["Gemini plus partner and open-model catalog", "Google Cloud IAM, VPC, evaluation, monitoring, and regional endpoints", "managed deployment of open and custom models"],
+    "limitations": ["GCP-specific identity and control plane", "region and access-mode differences", "not an external-provider-key aggregator"],
+    "official_sources": [
+      {"label": "Models", "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models"},
+      {"label": "Model Garden", "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models"},
+      {"label": "Pricing", "url": "https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "groqcloud",
+    "name": "GroqCloud",
+    "vendor": "Groq",
+    "kind": "inference-platform",
+    "delivery": "managed",
+    "byok": false,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing_note": "Per-model input/output token pricing and per-hour speech pricing; preview and production catalogs differ. Projects can set spend caps and alerts.",
+    "strengths": ["Very low latency and high throughput for supported models", "OpenAI-compatible API", "projects, RBAC, logs, usage, and spend controls"],
+    "limitations": ["Curated, narrower catalog", "preview availability can change quickly", "no cross-provider routing or self-hosted cloud control plane"],
+    "official_sources": [
+      {"label": "Overview", "url": "https://console.groq.com/docs/overview"},
+      {"label": "Models and pricing", "url": "https://console.groq.com/docs/models"},
+      {"label": "Spend limits", "url": "https://console.groq.com/docs/spend-limits"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "helicone",
+    "name": "Helicone",
+    "vendor": "Helicone",
+    "kind": "api-gateway",
+    "delivery": "managed-and-self-hosted",
+    "byok": true,
+    "self_host": true,
+    "open_source": true,
+    "license": "Apache-2.0",
+    "pricing_note": "Hobby is free with a monthly request allowance and short retention; Pro starts at $79/month, Team at $799/month, and Enterprise is custom. Upstream model charges are separate.",
+    "strengths": ["Request-level observability, sessions, prompts, datasets, evals, and feedback", "proxy adoption with routing, caching, and failover", "Docker, Kubernetes, managed, and enterprise on-prem paths"],
+    "limitations": ["Governance and longer retention are tiered", "self-hosting adds operations", "managed model breadth is smaller than the largest marketplaces"],
+    "official_sources": [
+      {"label": "Gateway", "url": "https://docs.helicone.ai/gateway/overview"},
+      {"label": "Pricing", "url": "https://www.helicone.ai/pricing"},
+      {"label": "Self-hosting", "url": "https://docs.helicone.ai/getting-started/self-host/overview"},
+      {"label": "Repository", "url": "https://github.com/Helicone/helicone"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "hugging-face-inference-providers",
+    "name": "Hugging Face Inference Providers",
+    "vendor": "Hugging Face",
+    "kind": "model-marketplace",
+    "delivery": "managed",
+    "byok": true,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing_note": "Routed requests use provider list rates without Hugging Face markup. Small monthly inference credits depend on account tier; BYOK is billed directly by the provider.",
+    "strengths": ["Direct bridge from Hub discovery to many inference partners", "broad text, vision, image, video, speech, and embedding tasks", "Python, JavaScript, and OpenAI-compatible clients"],
+    "limitations": ["Provider/model/task capabilities vary", "free credits are small", "less policy and fallback depth than specialist gateways"],
+    "official_sources": [
+      {"label": "Overview", "url": "https://huggingface.co/docs/inference-providers/index"},
+      {"label": "Pricing", "url": "https://huggingface.co/docs/inference-providers/pricing"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "litellm",
+    "name": "LiteLLM",
+    "vendor": "BerriAI",
+    "kind": "api-gateway",
+    "delivery": "managed-and-self-hosted",
+    "byok": true,
+    "self_host": true,
+    "open_source": true,
+    "license": "MIT for core; separate enterprise license",
+    "pricing_note": "Open-source proxy and SDK are free. Enterprise is annual/custom and sized by request capacity, deployment, and support rather than model-token markup.",
+    "strengths": ["Very broad provider and model compatibility", "OpenAI-compatible proxy plus Python SDK", "routing, fallbacks, caching, virtual keys, budgets, guardrails, and observability"],
+    "limitations": ["Operator owns databases, caches, scaling, upgrades, and security", "advanced identity, audit, and multi-region features are enterprise-only"],
+    "official_sources": [
+      {"label": "Docs", "url": "https://docs.litellm.ai/"},
+      {"label": "Pricing", "url": "https://www.litellm.ai/pricing"},
+      {"label": "Repository", "url": "https://github.com/BerriAI/litellm"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "microsoft-foundry",
+    "name": "Microsoft Foundry / Azure OpenAI",
+    "vendor": "Microsoft Azure",
+    "kind": "cloud-model-platform",
+    "delivery": "managed",
+    "byok": false,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing_note": "Serverless token, provisioned throughput, batch, and managed-compute pricing varies by currency, region, model, and deployment type; use the official calculator for a comparable quote.",
+    "strengths": ["Azure OpenAI plus partner, community, and open-model catalog", "enterprise identity, compliance, private networking, and regions", "model router and OpenTelemetry-based observability"],
+    "limitations": ["Complex quotas, regions, deployment modes, and naming", "not a general external-key gateway", "router support depends on model subset and region"],
+    "official_sources": [
+      {"label": "Models overview", "url": "https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview"},
+      {"label": "Azure OpenAI pricing", "url": "https://azure.microsoft.com/en-us/pricing/details/azure-openai/"},
+      {"label": "Model router", "url": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-router"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "openrouter",
+    "name": "OpenRouter",
+    "vendor": "OpenRouter",
+    "kind": "model-marketplace",
+    "delivery": "managed",
+    "byok": true,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing_note": "PAYG uses listed model rates plus a 5.5% platform fee. The free tier has limited daily requests; BYOK includes a monthly no-fee threshold, then a published percentage fee.",
+    "strengths": ["Hundreds of models and many upstream providers behind one API", "fallback, sorting, allowlists, data-policy, ZDR, quantization, and performance controls", "unified usage analytics"],
+    "limitations": ["Proprietary managed gateway", "credit and platform fees", "upstream parameter and tool behavior still varies"],
+    "official_sources": [
+      {"label": "Pricing", "url": "https://openrouter.ai/pricing"},
+      {"label": "FAQ", "url": "https://openrouter.ai/docs/faq"},
+      {"label": "Provider routing", "url": "https://openrouter.ai/docs/guides/routing/provider-selection"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "portkey",
+    "name": "Portkey",
+    "vendor": "Portkey",
+    "kind": "api-gateway",
+    "delivery": "managed-and-self-hosted",
+    "byok": true,
+    "self_host": true,
+    "open_source": true,
+    "license": "MIT for gateway",
+    "pricing_note": "Open-source gateway is free. Managed Dev includes a limited free request allowance; Pro starts at $49/month with included requests and metered overage; Enterprise is custom.",
+    "strengths": ["Routing, fallbacks, retries, circuit breakers, caching, budgets, and guardrails", "observability, prompts, traces, alerts, feedback, and OpenTelemetry", "managed, hybrid, self-hosted, and air-gapped options"],
+    "limitations": ["Advanced governance and retention are paid", "open gateway does not include every managed control-plane feature", "self-hosting adds operations"],
+    "official_sources": [
+      {"label": "Gateway", "url": "https://portkey.ai/docs/product/ai-gateway"},
+      {"label": "Open source", "url": "https://portkey.ai/docs/product/open-source"},
+      {"label": "Plan comparison", "url": "https://portkey.ai/docs/product/product-feature-comparison"},
+      {"label": "Repository", "url": "https://github.com/Portkey-AI/gateway"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "together-ai",
+    "name": "Together AI",
+    "vendor": "Together AI",
+    "kind": "inference-platform",
+    "delivery": "managed",
+    "byok": false,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing_note": "Per-model serverless token pricing plus fine-tuning, dedicated endpoints, and GPU-hour options. Rates vary by model and deployment; fine-tuning has a published minimum charge.",
+    "strengths": ["Broad open/open-weight model catalog", "serverless, fine-tuning, dedicated inference, and GPU clusters", "custom weight deployment and project analytics"],
+    "limitations": ["Not a neutral third-party-key aggregator", "proprietary hosted infrastructure", "serverless and dedicated catalogs differ"],
+    "official_sources": [
+      {"label": "Pricing", "url": "https://www.together.ai/pricing"},
+      {"label": "Inference", "url": "https://docs.together.ai/docs/inference/overview"},
+      {"label": "Custom models", "url": "https://docs.together.ai/docs/dedicated-endpoints/custom-models"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "vercel-ai-gateway",
+    "name": "Vercel AI Gateway",
+    "vendor": "Vercel",
+    "kind": "api-gateway",
+    "delivery": "managed",
+    "byok": true,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing_note": "Model tokens are passed through at provider list price without token markup or gateway platform fee; credits, reporting, drains, and plan capabilities have separate terms.",
+    "strengths": ["Strong Vercel AI SDK and web-app integration", "broad multimodal catalog", "failover, cost/latency routing, escalation, budgets, data controls, logs, and reporting"],
+    "limitations": ["Proprietary managed control plane", "BYOK and governance depend on Vercel plan", "best fit is the Vercel ecosystem"],
+    "official_sources": [
+      {"label": "Product", "url": "https://vercel.com/ai-gateway"},
+      {"label": "Pricing", "url": "https://vercel.com/docs/ai-gateway/pricing"},
+      {"label": "BYOK", "url": "https://vercel.com/docs/ai-gateway/authentication-and-byok/byok"},
+      {"label": "Providers", "url": "https://vercel.com/ai-gateway/models/providers"}
+    ],
+    "last_verified": "2026-08-04"
+  }
+]

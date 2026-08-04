@@ -1,0 +1,43 @@
+name: Catalog correction
+description: Report stale pricing, a changed capability, or an incorrect entry.
+title: "catalog: "
+labels: [catalog, needs-verification]
+body:
+  - type: dropdown
+    id: catalog
+    attributes:
+      label: Catalog
+      options:
+        - Tools
+        - Gateways and inference platforms
+        - Model families
+    validations:
+      required: true
+  - type: input
+    id: entry
+    attributes:
+      label: Entry name or ID
+      placeholder: qwen-code
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: What changed?
+      description: State the old claim and the corrected claim.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Official sources
+      description: Link directly to official documentation, pricing, release notes, model cards, or upstream repositories.
+    validations:
+      required: true
+  - type: input
+    id: checked
+    attributes:
+      label: Verification date
+      placeholder: YYYY-MM-DD
+    validations:
+      required: true

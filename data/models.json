@@ -1,0 +1,360 @@
+[
+  {
+    "id": "amazon-nova",
+    "provider": "Amazon",
+    "family": "Nova",
+    "representative_models": ["Nova 2 Lite", "Nova Pro v1", "Nova Lite v1", "Nova Micro v1"],
+    "access": ["cloud-platform"],
+    "open_weights": false,
+    "weight_license": null,
+    "modalities": ["text", "image input", "video input", "document input"],
+    "context_note": "Nova 2 Lite supports up to 1M input context and 64K output; earlier variants differ.",
+    "api_pricing": {
+      "input_usd_per_million": 0.3,
+      "cached_input_usd_per_million": null,
+      "output_usd_per_million": 2.5,
+      "model": "Nova 2 Lite",
+      "note": "Published Bedrock on-demand example; region and deployment mode can change pricing."
+    },
+    "coding_notes": ["Nova 2 Lite targets generation, debugging, refactoring, architecture, tools, and code interpreter workflows", "cost-oriented choice inside Bedrock"],
+    "limitations": ["Bedrock-only and proprietary", "hidden reasoning is billed as output", "Nova 2 currently has a narrower released lineup than the v1 family"],
+    "official_sources": [
+      {"label": "Nova 2 Lite model card", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-2-lite.html"},
+      {"label": "Nova 2 overview", "url": "https://docs.aws.amazon.com/nova/latest/nova2-userguide/what-is-nova-2.html"},
+      {"label": "Pricing example", "url": "https://aws.amazon.com/blogs/machine-learning/pair-nova-2-lite-with-claude-for-cost-optimized-document-processing/"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "anthropic-claude",
+    "provider": "Anthropic",
+    "family": "Claude",
+    "representative_models": ["Claude Fable 5", "Claude Opus 5", "Claude Sonnet 5", "Claude Haiku 4.5"],
+    "access": ["first-party-api", "cloud-platform", "gateway"],
+    "open_weights": false,
+    "weight_license": null,
+    "modalities": ["text", "image input"],
+    "context_note": "Current Claude 5 models publish up to 1M context and 128K output; Haiku 4.5 is smaller.",
+    "api_pricing": {
+      "input_usd_per_million": 5,
+      "cached_input_usd_per_million": 0.5,
+      "output_usd_per_million": 25,
+      "model": "Claude Opus 5",
+      "note": "Base input, cache-hit, and output rates; cache writes, batch, fast mode, and cloud hosts differ."
+    },
+    "coding_notes": ["Opus targets difficult autonomous engineering", "Sonnet balances capability and everyday agent cost", "Haiku fits high-volume subagents"],
+    "limitations": ["Proprietary API-only weights", "thinking tokens are billable", "temporary promotions and moving aliases require date checks"],
+    "official_sources": [
+      {"label": "Models", "url": "https://platform.claude.com/docs/en/about-claude/models/overview"},
+      {"label": "Selection", "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model"},
+      {"label": "Pricing", "url": "https://platform.claude.com/docs/en/about-claude/pricing"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "cohere-command",
+    "provider": "Cohere",
+    "family": "Command and North",
+    "representative_models": ["Command A+", "Command A", "North-Mini-Code-1.0", "Command R7B"],
+    "access": ["first-party-api", "cloud-platform", "gateway", "download"],
+    "open_weights": true,
+    "weight_license": "Mixed: Apache-2.0, CC-BY-NC-4.0, and proprietary managed terms by model",
+    "modalities": ["text", "image input on selected models"],
+    "context_note": "Current representatives range from 128K to 256K context and have model-specific output limits.",
+    "api_pricing": {
+      "input_usd_per_million": 2.5,
+      "cached_input_usd_per_million": null,
+      "output_usd_per_million": 10,
+      "model": "Command A",
+      "note": "Representative token-priced model; Command A+ and North production access use different terms."
+    },
+    "coding_notes": ["Command A+ targets enterprise and RAG agents", "North-Mini-Code is the dedicated terminal/tool coding specialist", "Command R7B is a low-cost token-priced option"],
+    "limitations": ["Licenses differ substantially across checkpoints", "some production rates are custom", "official model-ID documentation should be rechecked before integration"],
+    "official_sources": [
+      {"label": "Command A+", "url": "https://docs.cohere.com/docs/command-a-plus"},
+      {"label": "Command A", "url": "https://docs.cohere.com/docs/command-a"},
+      {"label": "North Mini Code", "url": "https://docs.cohere.com/docs/north-mini-code-1.0"},
+      {"label": "Pricing", "url": "https://cohere.com/pricing"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "deepseek-v4",
+    "provider": "DeepSeek",
+    "family": "DeepSeek V4",
+    "representative_models": ["DeepSeek-V4-Pro", "DeepSeek-V4-Flash", "DeepSeek-V4-Flash-0731"],
+    "access": ["first-party-api", "cloud-platform", "gateway", "download"],
+    "open_weights": true,
+    "weight_license": "MIT",
+    "modalities": ["text"],
+    "context_note": "V4 Pro and Flash publish 1M context with up to 384K output.",
+    "api_pricing": {
+      "input_usd_per_million": 0.435,
+      "cached_input_usd_per_million": 0.003625,
+      "output_usd_per_million": 0.87,
+      "model": "DeepSeek-V4-Pro",
+      "note": "Cache-miss input, cache-hit input, and output rates before any future peak-hour change."
+    },
+    "coding_notes": ["Pro targets difficult agentic coding and STEM", "Flash is optimized for inexpensive agent loops and supports FIM plus modern agent API formats"],
+    "limitations": ["Check time-of-day and announced pricing rules", "very large checkpoints require substantial infrastructure", "legacy API aliases have retired"],
+    "official_sources": [
+      {"label": "Pricing", "url": "https://api-docs.deepseek.com/quick_start/pricing/"},
+      {"label": "Release and API matrix", "url": "https://api-docs.deepseek.com/news/news260424/"},
+      {"label": "Pro model card", "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"},
+      {"label": "Flash model card", "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "google-gemini",
+    "provider": "Google",
+    "family": "Gemini",
+    "representative_models": ["Gemini 3.1 Pro Preview", "Gemini 3.6 Flash", "Gemini 3.5 Flash-Lite"],
+    "access": ["first-party-api", "cloud-platform", "gateway"],
+    "open_weights": false,
+    "weight_license": null,
+    "modalities": ["text", "image input", "video input", "audio input", "PDF input"],
+    "context_note": "Representative Gemini 3.x models publish 1,048,576 input context and 65,536 output.",
+    "api_pricing": {
+      "input_usd_per_million": 1.5,
+      "cached_input_usd_per_million": 0.15,
+      "output_usd_per_million": 7.5,
+      "model": "Gemini 3.6 Flash",
+      "note": "Paid-tier text/image/video input, cache, and output rates; tools and context tiers can add or change charges."
+    },
+    "coding_notes": ["Pro targets precise multi-step software engineering", "Flash suits responsive coding loops", "Flash-Lite fits parsing and simple high-volume subagents"],
+    "limitations": ["Pro is a preview model", "thinking tokens are billed as output", "search, maps, and other tools add charges"],
+    "official_sources": [
+      {"label": "Pricing", "url": "https://ai.google.dev/gemini-api/docs/pricing"},
+      {"label": "Gemini 3.1 Pro", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview"},
+      {"label": "Gemini 3.6 Flash", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash"},
+      {"label": "Gemini 3.5 Flash-Lite", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "meta-llama-4",
+    "provider": "Meta",
+    "family": "Llama 4",
+    "representative_models": ["Llama 4 Maverick", "Llama 4 Scout"],
+    "access": ["cloud-platform", "gateway", "download"],
+    "open_weights": true,
+    "weight_license": "Llama 4 Community License (custom, non-OSI)",
+    "modalities": ["text", "image input"],
+    "context_note": "Maverick publishes 1M context; Scout publishes up to 10M context under supported deployment conditions.",
+    "api_pricing": null,
+    "coding_notes": ["Useful for self-hosted and customizable multimodal workflows", "large context can support repository retrieval when the serving stack can sustain it"],
+    "limitations": ["No stable public first-party Meta token price was recorded", "not a current dedicated coding-agent family", "custom license includes attribution, use-policy, and scale conditions"],
+    "official_sources": [
+      {"label": "Launch", "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"},
+      {"label": "Maverick model card", "url": "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct"},
+      {"label": "Scout model card", "url": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct"},
+      {"label": "License", "url": "https://github.com/meta-llama/llama-models/blob/main/models/llama4/LICENSE"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "minimax-m",
+    "provider": "MiniMax",
+    "family": "MiniMax M",
+    "representative_models": ["MiniMax M3", "MiniMax M2.7", "MiniMax M2.7 HighSpeed"],
+    "access": ["first-party-api", "cloud-platform", "gateway", "download"],
+    "open_weights": true,
+    "weight_license": "Custom MiniMax Community License for M3; M2.7 has noncommercial restrictions without authorization",
+    "modalities": ["text", "image input", "video input"],
+    "context_note": "M3 publishes 1M context; M2.7 publishes 204,800 context.",
+    "api_pricing": {
+      "input_usd_per_million": 0.3,
+      "cached_input_usd_per_million": 0.06,
+      "output_usd_per_million": 1.2,
+      "model": "MiniMax M3",
+      "note": "Published promotional Standard rate for prompts up to 512K; longer context, Priority, and future discount changes cost more."
+    },
+    "coding_notes": ["M3 targets multimodal, long-horizon coding and tool use", "HighSpeed trades higher token price for lower latency"],
+    "limitations": ["Very large self-hosting footprint", "weight licenses are custom and revenue-sensitive", "displayed M3 rate is labeled as a discount"],
+    "official_sources": [
+      {"label": "Models", "url": "https://platform.minimax.io/docs/guides/models-intro"},
+      {"label": "Pricing", "url": "https://platform.minimax.io/docs/guides/pricing-paygo"},
+      {"label": "M3 model card", "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3"},
+      {"label": "M3 license", "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3/blob/main/LICENSE"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "mistral-models",
+    "provider": "Mistral AI",
+    "family": "Mistral and Codestral",
+    "representative_models": ["Mistral Medium 3.5", "Mistral Small 4", "Codestral 25.08"],
+    "access": ["first-party-api", "cloud-platform", "gateway", "download"],
+    "open_weights": true,
+    "weight_license": "Mixed: Modified MIT, Apache-2.0, and proprietary by model",
+    "modalities": ["text", "image input on selected models"],
+    "context_note": "Medium 3.5 and Small 4 publish 256K context; Codestral publishes 128K.",
+    "api_pricing": {
+      "input_usd_per_million": 1.5,
+      "cached_input_usd_per_million": null,
+      "output_usd_per_million": 7.5,
+      "model": "Mistral Medium 3.5",
+      "note": "Representative first-party API rate; other models and deployment modes differ."
+    },
+    "coding_notes": ["Medium 3.5 is the current agentic-coding recommendation", "Small 4 is inexpensive and has Apache-2.0 weights", "Codestral specializes in completion and fill-in-the-middle"],
+    "limitations": ["Family licenses are not uniform", "Modified MIT is not plain MIT", "deprecated Devstral IDs should be replaced in new integrations"],
+    "official_sources": [
+      {"label": "Model overview", "url": "https://docs.mistral.ai/models/overview"},
+      {"label": "Pricing", "url": "https://mistral.ai/pricing/"},
+      {"label": "Mistral Medium 3.5", "url": "https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04"},
+      {"label": "Mistral Small 4", "url": "https://docs.mistral.ai/models/model-cards/mistral-small-4-0-26-03"},
+      {"label": "Codestral", "url": "https://docs.mistral.ai/models/model-cards/codestral-25-08"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "moonshot-kimi",
+    "provider": "Moonshot AI",
+    "family": "Kimi",
+    "representative_models": ["Kimi K3", "Kimi K2.7 Code", "Kimi K2.7 Code HighSpeed"],
+    "access": ["first-party-api", "cloud-platform", "gateway", "download"],
+    "open_weights": true,
+    "weight_license": "Custom Kimi license for K3; Modified MIT for K2.7 Code",
+    "modalities": ["text", "image input", "video input"],
+    "context_note": "Kimi K3 publishes 1,048,576 context; K2.7 Code publishes 256K.",
+    "api_pricing": {
+      "input_usd_per_million": 3,
+      "cached_input_usd_per_million": 0.3,
+      "output_usd_per_million": 15,
+      "model": "Kimi K3",
+      "note": "Uncached input, cache-read, and output rates; taxes and tool calls are separate."
+    },
+    "coding_notes": ["K3 targets long-horizon repository work and end-to-end knowledge tasks", "K2.7 Code is the coding-focused default", "HighSpeed offers lower latency at a higher rate"],
+    "limitations": ["Always-on reasoning increases latency and output cost", "checkpoints are extremely large", "licenses are custom and include commercial conditions"],
+    "official_sources": [
+      {"label": "K3 pricing", "url": "https://www.kimi.com/resources/kimi-k3-pricing"},
+      {"label": "K3 repository", "url": "https://github.com/MoonshotAI/Kimi-K3"},
+      {"label": "K2.7 Code", "url": "https://www.kimi.com/resources/kimi-k2-7-code"},
+      {"label": "K2.7 pricing", "url": "https://www.kimi.com/resources/kimi-k2-7-code-pricing"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "nvidia-nemotron",
+    "provider": "NVIDIA",
+    "family": "Nemotron 3",
+    "representative_models": ["Nemotron 3 Ultra 550B-A55B", "Nemotron 3 Super 120B-A12B", "Nemotron 3 Nano 30B-A3B"],
+    "access": ["first-party-api", "cloud-platform", "gateway", "download"],
+    "open_weights": true,
+    "weight_license": "OpenMDW-1.1 or NVIDIA Nemotron Open Model License by checkpoint",
+    "modalities": ["text", "code"],
+    "context_note": "The family publishes up to 1M context depending on checkpoint and deployment.",
+    "api_pricing": {
+      "input_usd_per_million": 0.15,
+      "cached_input_usd_per_million": null,
+      "output_usd_per_million": 0.65,
+      "model": "Nemotron 3 Super via AWS",
+      "note": "Representative AWS-hosted token rate; NVIDIA production NIM is primarily licensed per GPU and other hosts differ."
+    },
+    "coding_notes": ["Transparent training assets and long-context agent focus", "Nano and Super provide more practical self-hosting paths than Ultra"],
+    "limitations": ["Ultra requires datacenter-scale hardware", "hosted price depends on route", "license text differs across checkpoints"],
+    "official_sources": [
+      {"label": "Family", "url": "https://developer.nvidia.com/topics/ai/nemotron"},
+      {"label": "Ultra model card", "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16"},
+      {"label": "Super model card", "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16"},
+      {"label": "NIM pricing", "url": "https://docs.api.nvidia.com/nim/docs/product"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "openai-gpt-5-6",
+    "provider": "OpenAI",
+    "family": "GPT-5.6",
+    "representative_models": ["GPT-5.6 Sol", "GPT-5.6 Terra", "GPT-5.6 Luna"],
+    "access": ["first-party-api", "cloud-platform"],
+    "open_weights": false,
+    "weight_license": null,
+    "modalities": ["text", "image input", "computer use on supported surfaces"],
+    "context_note": "Availability, modalities, and limits depend on the Codex/ChatGPT surface and API access shown in the official model matrix.",
+    "api_pricing": null,
+    "coding_notes": ["Sol is the flagship for complex coding, computer use, research, and cybersecurity", "Terra is the balanced everyday model", "Luna targets fast, repeatable, high-volume work"],
+    "limitations": ["Codex subscription credits and API token pricing are separate", "higher reasoning effort, Max, and Ultra consume more time or usage", "availability is plan- and surface-dependent"],
+    "official_sources": [
+      {"label": "Codex models", "url": "https://learn.chatgpt.com/docs/models"},
+      {"label": "Codex pricing", "url": "https://learn.chatgpt.com/docs/pricing"},
+      {"label": "API models", "url": "https://developers.openai.com/api/docs/models"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "qwen-models",
+    "provider": "Alibaba Qwen",
+    "family": "Qwen 3.x",
+    "representative_models": ["Qwen3.8-Max", "Qwen3.7-Plus", "Qwen3.7-Flash", "Qwen3-Coder-480B-A35B-Instruct"],
+    "access": ["first-party-api", "cloud-platform", "gateway", "download"],
+    "open_weights": true,
+    "weight_license": "Apache-2.0 for Qwen3-Coder; hosted flagship variants have no matching released weights",
+    "modalities": ["text", "code"],
+    "context_note": "Hosted Qwen3.8/3.7 representatives publish 1M context; Qwen3-Coder has 256K native context and supports 1M extrapolation.",
+    "api_pricing": null,
+    "coding_notes": ["Hosted Max/Plus models target long-context tools and coding", "Qwen3-Coder is an Apache-2.0 agentic coding checkpoint", "Flash targets inexpensive high-volume work"],
+    "limitations": ["Qwen3.8 launched shortly before this snapshot", "official regions use different CNY and USD price tables", "Qwen3-Coder is extremely large to self-host"],
+    "official_sources": [
+      {"label": "Qwen3.8-Max", "url": "https://help.aliyun.com/zh/model-studio/qwen3-8-max"},
+      {"label": "Model Studio pricing", "url": "https://help.aliyun.com/zh/model-studio/model-pricing"},
+      {"label": "International pricing", "url": "https://www.alibabacloud.com/help/en/model-studio/model-pricing"},
+      {"label": "Qwen3-Coder model card", "url": "https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "xai-grok",
+    "provider": "xAI",
+    "family": "Grok",
+    "representative_models": ["Grok 4.5", "Grok 4.3", "Grok Build 0.1"],
+    "access": ["first-party-api", "cloud-platform", "gateway"],
+    "open_weights": false,
+    "weight_license": null,
+    "modalities": ["text", "image input"],
+    "context_note": "Grok 4.5 publishes 500K context, Grok 4.3 publishes 1M, and Grok Build 0.1 publishes 256K.",
+    "api_pricing": {
+      "input_usd_per_million": 1.25,
+      "cached_input_usd_per_million": null,
+      "output_usd_per_million": 2.5,
+      "model": "Grok 4.3 up to 200K input",
+      "note": "Prompts above 200K use a higher tier; tools such as search and code execution are separate."
+    },
+    "coding_notes": ["Grok 4.5 is the strongest general and coding model in the family", "Grok Build is optimized for low-latency agentic engineering", "Grok 4.3 offers a long-context balanced path"],
+    "limitations": ["Proprietary API-only weights", "long prompts double published base rates", "latest aliases move and tool calls add cost"],
+    "official_sources": [
+      {"label": "Models", "url": "https://docs.x.ai/developers/models"},
+      {"label": "Pricing", "url": "https://docs.x.ai/developers/pricing"},
+      {"label": "Grok 4.5", "url": "https://docs.x.ai/developers/models/grok-4.5"},
+      {"label": "Grok Build", "url": "https://docs.x.ai/developers/models/grok-build-0.1"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "zai-glm",
+    "provider": "Z.ai",
+    "family": "GLM",
+    "representative_models": ["GLM-5.2", "GLM-5-Turbo", "GLM-4.7-FlashX", "GLM-4.7-Flash"],
+    "access": ["first-party-api", "cloud-platform", "gateway", "download"],
+    "open_weights": true,
+    "weight_license": "MIT for GLM-5.2 and downloadable GLM-4.7-Flash; hosted aliases vary",
+    "modalities": ["text", "code"],
+    "context_note": "GLM-5.2 publishes 1M context and 128K output; Turbo and Flash variants publish 200K context.",
+    "api_pricing": {
+      "input_usd_per_million": 1.4,
+      "cached_input_usd_per_million": 0.26,
+      "output_usd_per_million": 4.4,
+      "model": "GLM-5.2",
+      "note": "First-party API input, cache-read, and output rates."
+    },
+    "coding_notes": ["GLM-5.2 targets project-scale cross-file engineering", "Turbo is the balanced hosted agent route", "Flash variants target low-cost and free experimentation"],
+    "limitations": ["Large open checkpoints need substantial hardware", "hosted Turbo/FlashX aliases do not always map clearly to public checkpoints", "model availability differs by endpoint"],
+    "official_sources": [
+      {"label": "GLM-5.2", "url": "https://docs.z.ai/guides/llm/glm-5.2"},
+      {"label": "Pricing", "url": "https://docs.z.ai/guides/overview/pricing"},
+      {"label": "GLM-5.2 weights", "url": "https://huggingface.co/zai-org/GLM-5.2"},
+      {"label": "GLM-4.7", "url": "https://docs.z.ai/guides/llm/glm-4.7"}
+    ],
+    "last_verified": "2026-08-04"
+  }
+]

@@ -1,0 +1,988 @@
+[
+  {
+    "id": "aider",
+    "name": "Aider",
+    "vendor": "Aider-AI",
+    "status": "active",
+    "category": "cli-agent",
+    "interfaces": ["cli"],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "execution": "local-tools",
+    "model_policy": "provider-agnostic",
+    "byok": true,
+    "self_host": true,
+    "open_source": true,
+    "license": "Apache-2.0",
+    "pricing": {
+      "model": "free",
+      "free_tier": true,
+      "starting_price_usd_month": 0,
+      "note": "The client is free; model API or local hardware costs are separate."
+    },
+    "best_for": ["Git-centered terminal workflows", "broad provider choice"],
+    "strengths": ["Repository map and automatic Git checkpoints", "hundreds of model paths through LiteLLM", "editor-agnostic"],
+    "limitations": ["No full native GUI", "model quality and metadata vary by provider", "no bundled inference"],
+    "official_sources": [
+      {"label": "Docs", "url": "https://aider.chat/"},
+      {"label": "Models", "url": "https://aider.chat/docs/llms.html"},
+      {"label": "Repository", "url": "https://github.com/Aider-AI/aider"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "amp",
+    "name": "Amp",
+    "vendor": "Sourcegraph",
+    "status": "active",
+    "category": "cli-agent",
+    "interfaces": ["cli", "ide", "web"],
+    "platforms": ["macOS", "Linux", "Windows via WSL", "VS Code", "Neovim", "Zed"],
+    "execution": "hybrid",
+    "model_policy": "curated-multi-model",
+    "byok": false,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing": {
+      "model": "hybrid",
+      "free_tier": true,
+      "starting_price_usd_month": 20,
+      "note": "Free availability may be capacity-limited; PAYG has a minimum credit purchase; Megawatt is $20/month and Gigawatt is $200/month."
+    },
+    "best_for": ["opinionated frontier-model routing", "collaborative agent threads"],
+    "strengths": ["Terminal, editor, web, Slack, and remote-agent surfaces", "specialized subagents and high-reasoning modes"],
+    "limitations": ["No general local-model path", "managed routing limits model control", "cloud account required"],
+    "official_sources": [
+      {"label": "Manual", "url": "https://ampcode.com/manual"},
+      {"label": "Pricing", "url": "https://ampcode.com/pricing"},
+      {"label": "Modes", "url": "https://ampcode.com/modes"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "amazon-q-developer",
+    "name": "Amazon Q Developer",
+    "vendor": "Amazon Web Services",
+    "status": "active",
+    "category": "ide-extension",
+    "interfaces": ["ide", "cli", "web"],
+    "platforms": ["VS Code", "JetBrains", "Visual Studio", "Eclipse", "macOS", "Linux"],
+    "execution": "hybrid",
+    "model_policy": "vendor-models",
+    "byok": false,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing": {
+      "model": "subscription",
+      "free_tier": true,
+      "starting_price_usd_month": 19,
+      "note": "A free individual tier is available; Pro is priced per user per month. Check the AWS page for current quotas and regional terms."
+    },
+    "best_for": ["AWS-heavy development", "IDE and command-line assistance"],
+    "strengths": ["AWS console and service context", "IDE, CLI, transformation, and security-oriented capabilities"],
+    "limitations": ["Strongest fit is the AWS ecosystem", "models and quotas are managed by AWS", "not self-hosted"],
+    "official_sources": [
+      {"label": "Product", "url": "https://aws.amazon.com/q/developer/"},
+      {"label": "Pricing", "url": "https://aws.amazon.com/q/developer/pricing/"},
+      {"label": "Docs", "url": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "anythingllm",
+    "name": "AnythingLLM",
+    "vendor": "Mintplex Labs",
+    "status": "active",
+    "category": "web-gui",
+    "interfaces": ["desktop", "web", "api"],
+    "platforms": ["Windows", "macOS", "Linux", "Docker"],
+    "execution": "local-tools",
+    "model_policy": "provider-agnostic",
+    "byok": true,
+    "self_host": true,
+    "open_source": true,
+    "license": "MIT",
+    "pricing": {
+      "model": "free",
+      "free_tier": true,
+      "starting_price_usd_month": 0,
+      "note": "Self-hosted and desktop editions are free; managed or enterprise offerings and model use may add cost."
+    },
+    "best_for": ["local document chat and agents", "team self-hosting"],
+    "strengths": ["Desktop and Docker deployment", "many model and vector database integrations", "workspace-oriented RAG"],
+    "limitations": ["Less code-editor-native than dedicated coding agents", "security and model hosting are operator responsibilities"],
+    "official_sources": [
+      {"label": "Product", "url": "https://anythingllm.com/"},
+      {"label": "Docs", "url": "https://docs.anythingllm.com/"},
+      {"label": "Repository", "url": "https://github.com/Mintplex-Labs/anything-llm"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "claude-code",
+    "name": "Claude Code",
+    "vendor": "Anthropic",
+    "status": "active",
+    "category": "cli-agent",
+    "interfaces": ["cli", "ide", "desktop", "web", "mobile"],
+    "platforms": ["Windows", "macOS", "Linux", "VS Code", "JetBrains", "Claude Desktop"],
+    "execution": "hybrid",
+    "model_policy": "vendor-models",
+    "byok": false,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing": {
+      "model": "hybrid",
+      "free_tier": false,
+      "starting_price_usd_month": 20,
+      "note": "Included with Claude Pro from $20/month and Max from $100/month, or billed through supported API/cloud-provider routes. Usage varies by model and context."
+    },
+    "best_for": ["deep terminal-first repository work", "Claude-centered workflows"],
+    "strengths": ["Mature multi-file agent with commands and MCP", "local, desktop, editor, and managed web sessions", "strong repository reasoning"],
+    "limitations": ["Claude-family models only", "network required for inference", "long agent loops can consume substantial usage"],
+    "official_sources": [
+      {"label": "Overview", "url": "https://docs.anthropic.com/en/docs/claude-code/overview"},
+      {"label": "Security", "url": "https://docs.anthropic.com/en/docs/claude-code/security"},
+      {"label": "Pricing", "url": "https://claude.com/pricing"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "cline",
+    "name": "Cline",
+    "vendor": "Cline",
+    "status": "active",
+    "category": "ide-extension",
+    "interfaces": ["ide", "cli", "ci"],
+    "platforms": ["Windows", "macOS", "Linux", "VS Code family", "JetBrains"],
+    "execution": "hybrid",
+    "model_policy": "provider-agnostic",
+    "byok": true,
+    "self_host": true,
+    "open_source": true,
+    "license": "Apache-2.0",
+    "pricing": {
+      "model": "hybrid",
+      "free_tier": true,
+      "starting_price_usd_month": 9.99,
+      "note": "The core client and some hosted models are free; ClinePass starts at $9.99/month, with hosted PAYG or BYOK/local inference costs separate."
+    },
+    "best_for": ["approval-driven IDE agents", "broad BYOK and local model choice"],
+    "strengths": ["Plan/Act workflow, checkpoints, terminal and browser tools", "30+ provider paths plus Ollama and LM Studio", "MCP and automation"],
+    "limitations": ["Approval-first loops can be slower", "long loops can be expensive", "capable local models require substantial hardware"],
+    "official_sources": [
+      {"label": "Overview", "url": "https://docs.cline.bot/cline-overview"},
+      {"label": "Authentication", "url": "https://docs.cline.bot/getting-started/authorizing-with-cline"},
+      {"label": "Repository", "url": "https://github.com/cline/cline"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "codex",
+    "name": "OpenAI Codex",
+    "vendor": "OpenAI",
+    "status": "active",
+    "category": "cli-agent",
+    "interfaces": ["desktop", "web", "cli", "ide", "ci", "mobile"],
+    "platforms": ["Windows", "macOS", "Linux", "VS Code family", "JetBrains"],
+    "execution": "hybrid",
+    "model_policy": "vendor-models",
+    "byok": true,
+    "self_host": false,
+    "open_source": true,
+    "license": "Apache-2.0 client; proprietary service",
+    "pricing": {
+      "model": "hybrid",
+      "free_tier": true,
+      "starting_price_usd_month": 8,
+      "note": "Included in ChatGPT Free, Go ($8), Plus ($20), Pro (from $100 with 5x/20x tiers), Business, Edu, and Enterprise; API-key use is token-billed. Plan and regional availability vary."
+    },
+    "best_for": ["complex end-to-end coding tasks", "local plus cloud delegation", "review and automation"],
+    "strengths": ["Desktop, web, CLI, IDE, cloud, review, and CI surfaces", "configurable reasoning, permissions, skills, plugins, MCP, and subagents", "local commands plus managed cloud work"],
+    "limitations": ["Best-integrated path uses OpenAI models", "usage depends on model, reasoning, task size, and execution location", "cloud features are unavailable with API-key-only authentication"],
+    "official_sources": [
+      {"label": "Models", "url": "https://learn.chatgpt.com/docs/models"},
+      {"label": "Pricing", "url": "https://learn.chatgpt.com/docs/pricing"},
+      {"label": "CLI", "url": "https://learn.chatgpt.com/docs/codex/cli"},
+      {"label": "IDE", "url": "https://learn.chatgpt.com/docs/codex/ide"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "continue",
+    "name": "Continue",
+    "vendor": "Continue",
+    "status": "legacy",
+    "category": "ide-extension",
+    "interfaces": ["ide", "cli"],
+    "platforms": ["Windows", "macOS", "Linux", "VS Code", "JetBrains"],
+    "execution": "local-tools",
+    "model_policy": "provider-agnostic",
+    "byok": true,
+    "self_host": true,
+    "open_source": true,
+    "license": "Apache-2.0",
+    "pricing": {
+      "model": "free",
+      "free_tier": true,
+      "starting_price_usd_month": 0,
+      "note": "The final standalone release is free, but the project is archived and no longer an active product. Provider costs remain separate."
+    },
+    "best_for": ["maintaining existing Continue configurations", "studying a flexible open agent architecture"],
+    "strengths": ["Broad provider and local-model configuration", "VS Code and JetBrains support", "YAML-defined agents and MCP"],
+    "limitations": ["Archived after the team joined Cursor", "should not be selected for a new long-lived deployment without a migration plan"],
+    "official_sources": [
+      {"label": "Project", "url": "https://continue.dev/"},
+      {"label": "Repository", "url": "https://github.com/continuedev/continue"},
+      {"label": "Providers", "url": "https://docs.continue.dev/customize/model-providers/overview"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "cursor",
+    "name": "Cursor",
+    "vendor": "Anysphere",
+    "status": "active",
+    "category": "ai-editor",
+    "interfaces": ["desktop", "cli", "web", "mobile"],
+    "platforms": ["Windows", "macOS", "Linux", "iOS supervision"],
+    "execution": "hybrid",
+    "model_policy": "curated-multi-model",
+    "byok": true,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing": {
+      "model": "subscription",
+      "free_tier": true,
+      "starting_price_usd_month": 20,
+      "note": "Hobby is free with limited Agent use; Pro starts at $20/month. Higher individual and team tiers use different included usage."
+    },
+    "best_for": ["all-in-one agentic editor", "fast completions plus multi-file agent work"],
+    "strengths": ["Integrated Tab, Agent, terminal, MCP, rules, hooks, and cloud agents", "curated frontier-model choice", "strong editor-native review loop"],
+    "limitations": ["Proprietary VS Code-derived environment", "BYOK requests still pass through Cursor infrastructure", "no first-class fully local inference path"],
+    "official_sources": [
+      {"label": "Pricing", "url": "https://cursor.com/pricing"},
+      {"label": "Models", "url": "https://cursor.com/docs/models-and-pricing"},
+      {"label": "Data use", "url": "https://cursor.com/data-use"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "devin",
+    "name": "Devin",
+    "vendor": "Cognition",
+    "status": "active",
+    "category": "cloud-agent",
+    "interfaces": ["web", "api", "mobile"],
+    "platforms": ["Managed cloud workspace", "Slack", "GitHub", "GitLab", "Bitbucket"],
+    "execution": "cloud-agent",
+    "model_policy": "curated-multi-model",
+    "byok": false,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing": {
+      "model": "subscription",
+      "free_tier": true,
+      "starting_price_usd_month": 20,
+      "note": "Free, Pro $20/month, Max $200/month, team and enterprise tiers; paid usage remains model- and task-dependent with extra usage possible."
+    },
+    "best_for": ["autonomous long-running cloud work", "issue-to-pull-request delegation"],
+    "strengths": ["Isolated shell, browser, and editor workspace", "parallel sessions and broad engineering integrations", "admin analytics and enterprise deployment options"],
+    "limitations": ["Agent brain remains Cognition-hosted", "no true self-host or general BYOK", "variable quota economics and mandatory human review"],
+    "official_sources": [
+      {"label": "Pricing", "url": "https://devin.ai/pricing"},
+      {"label": "Models", "url": "https://docs.devin.ai/desktop/models"},
+      {"label": "Deployment", "url": "https://docs.devin.ai/enterprise/deployment/overview"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "gemini-cli",
+    "name": "Gemini CLI",
+    "vendor": "Google",
+    "status": "active",
+    "category": "cli-agent",
+    "interfaces": ["cli", "ide", "ci"],
+    "platforms": ["Windows", "macOS", "Linux", "VS Code", "GitHub Actions"],
+    "execution": "local-tools",
+    "model_policy": "vendor-models",
+    "byok": true,
+    "self_host": false,
+    "open_source": true,
+    "license": "Apache-2.0",
+    "pricing": {
+      "model": "hybrid",
+      "free_tier": true,
+      "starting_price_usd_month": null,
+      "note": "Personal Google login includes a published free quota; paid use is through the Gemini API, Vertex AI, or Gemini Code Assist subscriptions."
+    },
+    "best_for": ["Gemini-centered terminal work", "search-grounded and multimodal coding tasks"],
+    "strengths": ["Headless and GitHub Actions modes", "MCP, sandboxing, search grounding, and multimodal inputs", "generous personal-login quota when eligible"],
+    "limitations": ["Gemini-family models only", "cloud inference and internet required", "free quotas are shared with related Code Assist use"],
+    "official_sources": [
+      {"label": "Repository", "url": "https://github.com/google-gemini/gemini-cli"},
+      {"label": "Quota and pricing", "url": "https://google-gemini.github.io/gemini-cli/docs/quota-and-pricing.html"},
+      {"label": "Code Assist", "url": "https://developers.google.com/gemini-code-assist/docs/gemini-cli"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "github-copilot",
+    "name": "GitHub Copilot",
+    "vendor": "GitHub",
+    "status": "active",
+    "category": "ide-extension",
+    "interfaces": ["ide", "cli", "web", "desktop", "mobile", "ci"],
+    "platforms": ["VS Code", "Visual Studio", "JetBrains", "Xcode", "Neovim", "Eclipse", "GitHub"],
+    "execution": "hybrid",
+    "model_policy": "curated-multi-model",
+    "byok": true,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing": {
+      "model": "subscription",
+      "free_tier": true,
+      "starting_price_usd_month": 10,
+      "note": "Free includes limited completions and chat; individual paid tiers currently start with Pro at $10/month, with Pro+, Max, business, and enterprise tiers above it."
+    },
+    "best_for": ["GitHub-native teams", "broad editor coverage", "completion plus local and cloud agents"],
+    "strengths": ["Deep issues, pull requests, review, Actions, and coding-agent integration", "wide editor and model coverage", "Copilot CLI supports selected BYOK and compatible local endpoints"],
+    "limitations": ["Feature and model availability vary by surface and plan", "premium-request accounting complicates comparisons", "cloud-agent sessions and policies have limits"],
+    "official_sources": [
+      {"label": "Plans", "url": "https://github.com/features/copilot/plans"},
+      {"label": "Features", "url": "https://docs.github.com/en/copilot/get-started/features"},
+      {"label": "Models", "url": "https://docs.github.com/en/copilot/reference/ai-models"},
+      {"label": "CLI BYOK", "url": "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "goose",
+    "name": "Goose",
+    "vendor": "Block",
+    "status": "active",
+    "category": "cli-agent",
+    "interfaces": ["desktop", "cli"],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "execution": "local-tools",
+    "model_policy": "provider-agnostic",
+    "byok": true,
+    "self_host": true,
+    "open_source": true,
+    "license": "Apache-2.0",
+    "pricing": {
+      "model": "free",
+      "free_tier": true,
+      "starting_price_usd_month": 0,
+      "note": "The agent is free; selected hosted model or local hardware costs are separate."
+    },
+    "best_for": ["extensible local agents", "MCP-driven developer automation"],
+    "strengths": ["Desktop and CLI clients", "provider choice and extension system", "local tool execution"],
+    "limitations": ["No bundled high-end inference", "extension permissions require review", "experience depends on selected model"],
+    "official_sources": [
+      {"label": "Docs", "url": "https://block.github.io/goose/"},
+      {"label": "Repository", "url": "https://github.com/block/goose"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "jan",
+    "name": "Jan",
+    "vendor": "Menlo Research",
+    "status": "active",
+    "category": "local-runtime",
+    "interfaces": ["desktop", "api"],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "execution": "local-tools",
+    "model_policy": "provider-agnostic",
+    "byok": true,
+    "self_host": true,
+    "open_source": true,
+    "license": "AGPL-3.0",
+    "pricing": {
+      "model": "free",
+      "free_tier": true,
+      "starting_price_usd_month": 0,
+      "note": "Desktop software is free; cloud APIs or hardware are separate."
+    },
+    "best_for": ["desktop local-model chat", "OpenAI-compatible local serving"],
+    "strengths": ["Local-first desktop interface", "downloadable models and API server", "optional cloud-provider connections"],
+    "limitations": ["Not a full coding IDE", "local performance depends on hardware and model quantization"],
+    "official_sources": [
+      {"label": "Product", "url": "https://jan.ai/"},
+      {"label": "Docs", "url": "https://jan.ai/docs/"},
+      {"label": "Repository", "url": "https://github.com/menloresearch/jan"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "jetbrains-ai-assistant",
+    "name": "JetBrains AI Assistant",
+    "vendor": "JetBrains",
+    "status": "active",
+    "category": "ide-extension",
+    "interfaces": ["ide"],
+    "platforms": ["JetBrains IDEs"],
+    "execution": "local-tools",
+    "model_policy": "curated-multi-model",
+    "byok": true,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing": {
+      "model": "subscription",
+      "free_tier": true,
+      "starting_price_usd_month": null,
+      "note": "Free and paid AI service levels depend on the JetBrains product and subscription; BYOK and local-model capabilities also vary by version."
+    },
+    "best_for": ["native JetBrains workflows", "IDE-aware chat, completion, and refactoring"],
+    "strengths": ["Deep IDE and language-service context", "works across the JetBrains product family", "supports multiple model access paths"],
+    "limitations": ["Best experience requires JetBrains IDEs", "feature and quota matrix changes by product and plan"],
+    "official_sources": [
+      {"label": "Overview", "url": "https://www.jetbrains.com/help/ai-assistant/about-ai-assistant.html"},
+      {"label": "Pricing", "url": "https://www.jetbrains.com/ai-ides/buy/"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "kilo-code",
+    "name": "Kilo Code",
+    "vendor": "Kilo",
+    "status": "active",
+    "category": "ide-extension",
+    "interfaces": ["ide", "cli", "web", "ci"],
+    "platforms": ["Windows", "macOS", "Linux", "VS Code", "JetBrains"],
+    "execution": "hybrid",
+    "model_policy": "provider-agnostic",
+    "byok": true,
+    "self_host": true,
+    "open_source": true,
+    "license": "MIT",
+    "pricing": {
+      "model": "hybrid",
+      "free_tier": true,
+      "starting_price_usd_month": 19,
+      "note": "Individual platform access is free; Kilo Pass starts at $19/month. Gateway inference, credit purchase fees, teams, and cloud compute are separate."
+    },
+    "best_for": ["maximum model/provider breadth", "IDE, CLI, and cloud continuity"],
+    "strengths": ["Hundreds of models through gateway, BYOK, or local runtimes", "custom modes, subagents, indexing, and team controls", "provider-rate gateway pricing"],
+    "limitations": ["Free platform does not mean free inference", "several billing layers require careful budgeting", "local models need suitable hardware"],
+    "official_sources": [
+      {"label": "Pricing", "url": "https://kilo.ai/pricing"},
+      {"label": "CLI", "url": "https://kilo.ai/docs/code-with-ai/platforms/cli"},
+      {"label": "Repository", "url": "https://github.com/Kilo-Org/kilocode"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "llama-cpp",
+    "name": "llama.cpp",
+    "vendor": "ggml-org",
+    "status": "active",
+    "category": "local-runtime",
+    "interfaces": ["cli", "api"],
+    "platforms": ["Windows", "macOS", "Linux", "FreeBSD", "many CPU/GPU backends"],
+    "execution": "local-tools",
+    "model_policy": "local-only",
+    "byok": false,
+    "self_host": true,
+    "open_source": true,
+    "license": "MIT",
+    "pricing": {
+      "model": "free",
+      "free_tier": true,
+      "starting_price_usd_month": 0,
+      "note": "Software is free; hardware, electricity, and model-license obligations remain."
+    },
+    "best_for": ["portable local GGUF inference", "embedding an OpenAI-compatible local server"],
+    "strengths": ["Wide hardware and quantization support", "CLI and HTTP server", "large ecosystem of compatible front ends"],
+    "limitations": ["Not a coding agent by itself", "manual model and performance tuning", "quality depends on selected weights and quantization"],
+    "official_sources": [
+      {"label": "Repository", "url": "https://github.com/ggml-org/llama.cpp"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "lm-studio",
+    "name": "LM Studio",
+    "vendor": "LM Studio",
+    "status": "active",
+    "category": "local-runtime",
+    "interfaces": ["desktop", "cli", "api"],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "execution": "local-tools",
+    "model_policy": "local-only",
+    "byok": false,
+    "self_host": true,
+    "open_source": false,
+    "license": "Free application; proprietary UI with open components",
+    "pricing": {
+      "model": "free",
+      "free_tier": true,
+      "starting_price_usd_month": 0,
+      "note": "The application is free to use; local hardware and model licenses are separate."
+    },
+    "best_for": ["easy desktop local inference", "OpenAI-compatible local APIs"],
+    "strengths": ["Model discovery and download UI", "local chat, server, and CLI", "simple integration with BYOK-capable coding agents"],
+    "limitations": ["Not a complete coding agent", "closed-source application shell", "large models require capable hardware"],
+    "official_sources": [
+      {"label": "Product", "url": "https://lmstudio.ai/"},
+      {"label": "Docs", "url": "https://lmstudio.ai/docs"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "localai",
+    "name": "LocalAI",
+    "vendor": "LocalAI",
+    "status": "active",
+    "category": "local-runtime",
+    "interfaces": ["api", "web", "cli"],
+    "platforms": ["Linux", "macOS", "Windows via containers or compatible builds", "Kubernetes"],
+    "execution": "local-tools",
+    "model_policy": "local-only",
+    "byok": false,
+    "self_host": true,
+    "open_source": true,
+    "license": "MIT",
+    "pricing": {
+      "model": "free",
+      "free_tier": true,
+      "starting_price_usd_month": 0,
+      "note": "Self-hosted software is free; compute and model licenses are separate."
+    },
+    "best_for": ["self-hosted OpenAI-compatible inference", "multi-backend local deployments"],
+    "strengths": ["Drop-in API compatibility across several AI task types", "container and cluster deployment paths", "no required cloud"],
+    "limitations": ["Operator owns security, capacity, and upgrades", "not an editor or coding agent by itself"],
+    "official_sources": [
+      {"label": "Docs", "url": "https://localai.io/"},
+      {"label": "Repository", "url": "https://github.com/mudler/LocalAI"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "ollama",
+    "name": "Ollama",
+    "vendor": "Ollama",
+    "status": "active",
+    "category": "local-runtime",
+    "interfaces": ["cli", "api"],
+    "platforms": ["Windows", "macOS", "Linux", "Docker"],
+    "execution": "local-tools",
+    "model_policy": "local-only",
+    "byok": false,
+    "self_host": true,
+    "open_source": true,
+    "license": "MIT",
+    "pricing": {
+      "model": "free",
+      "free_tier": true,
+      "starting_price_usd_month": 0,
+      "note": "Local runtime is free; hardware, electricity, and model-license terms are separate."
+    },
+    "best_for": ["simple local model management", "local API for coding tools"],
+    "strengths": ["Simple pull-and-run workflow", "broad integration support", "local OpenAI-compatible endpoints"],
+    "limitations": ["Not a coding agent or IDE", "large models need substantial RAM or VRAM", "serving and access control remain operator tasks"],
+    "official_sources": [
+      {"label": "Product", "url": "https://ollama.com/"},
+      {"label": "Repository", "url": "https://github.com/ollama/ollama"},
+      {"label": "API", "url": "https://github.com/ollama/ollama/blob/main/docs/api.md"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "opencode",
+    "name": "OpenCode",
+    "vendor": "Anomaly",
+    "status": "active",
+    "category": "cli-agent",
+    "interfaces": ["cli", "desktop", "web", "ide", "ci"],
+    "platforms": ["Windows", "macOS", "Linux", "VS Code family", "Zed", "GitHub", "GitLab"],
+    "execution": "hybrid",
+    "model_policy": "provider-agnostic",
+    "byok": true,
+    "self_host": true,
+    "open_source": true,
+    "license": "MIT",
+    "pricing": {
+      "model": "hybrid",
+      "free_tier": true,
+      "starting_price_usd_month": 10,
+      "note": "Core software and some models are free. OpenCode Go is $5 for the first month then $10/month; Zen is prepaid PAYG with processing fees."
+    },
+    "best_for": ["open multi-surface coding workflows", "maximum provider flexibility"],
+    "strengths": ["Terminal, desktop, web, editor, and repository automation", "75+ providers plus local models and selected subscription authentication", "LSP feedback, client/server mode, plugins, and MCP"],
+    "limitations": ["Provider behavior and cost vary", "exposed local servers require hardening", "some undo workflows assume Git"],
+    "official_sources": [
+      {"label": "Product", "url": "https://opencode.ai/"},
+      {"label": "Models", "url": "https://opencode.ai/docs/models/"},
+      {"label": "Pricing", "url": "https://opencode.ai/go"},
+      {"label": "Repository", "url": "https://github.com/anomalyco/opencode"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "openhands",
+    "name": "OpenHands",
+    "vendor": "OpenHands",
+    "status": "active",
+    "category": "cloud-agent",
+    "interfaces": ["web", "cli", "api", "ci"],
+    "platforms": ["Docker", "Kubernetes", "Managed cloud", "GitHub", "GitLab"],
+    "execution": "hybrid",
+    "model_policy": "provider-agnostic",
+    "byok": true,
+    "self_host": true,
+    "open_source": true,
+    "license": "MIT",
+    "pricing": {
+      "model": "hybrid",
+      "free_tier": true,
+      "starting_price_usd_month": null,
+      "note": "Self-hosted software is free; managed cloud, model tokens, and enterprise support have separate pricing."
+    },
+    "best_for": ["self-hostable software-engineering agents", "sandboxed issue-to-code automation"],
+    "strengths": ["Web, CLI, SDK, and integration surfaces", "sandboxed runtime and broad model support", "managed and self-hosted options"],
+    "limitations": ["Self-hosting requires container and security operations", "agent reliability depends heavily on model and sandbox configuration"],
+    "official_sources": [
+      {"label": "Docs", "url": "https://docs.openhands.dev/"},
+      {"label": "Cloud", "url": "https://openhands.dev/"},
+      {"label": "Repository", "url": "https://github.com/All-Hands-AI/OpenHands"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "open-webui",
+    "name": "Open WebUI",
+    "vendor": "Open WebUI",
+    "status": "active",
+    "category": "web-gui",
+    "interfaces": ["web", "api"],
+    "platforms": ["Docker", "Kubernetes", "Linux", "Windows", "macOS"],
+    "execution": "local-tools",
+    "model_policy": "provider-agnostic",
+    "byok": true,
+    "self_host": true,
+    "open_source": false,
+    "license": "Open WebUI License (source-available with branding terms)",
+    "pricing": {
+      "model": "free",
+      "free_tier": true,
+      "starting_price_usd_month": 0,
+      "note": "Self-hosted community software is free; model APIs, infrastructure, and enterprise arrangements are separate."
+    },
+    "best_for": ["self-hosted team chat over local and cloud models", "RAG and tool-enabled web access"],
+    "strengths": ["Broad OpenAI-compatible and Ollama support", "multi-user web UI, knowledge, tools, and administration", "container-friendly deployment"],
+    "limitations": ["Not code-editor-native", "current license includes branding restrictions", "operator owns identity, updates, and data security"],
+    "official_sources": [
+      {"label": "Docs", "url": "https://docs.openwebui.com/"},
+      {"label": "Repository and license", "url": "https://github.com/open-webui/open-webui"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "plandex",
+    "name": "Plandex",
+    "vendor": "Plandex",
+    "status": "active",
+    "category": "cli-agent",
+    "interfaces": ["cli"],
+    "platforms": ["macOS", "Linux", "Windows via WSL", "Docker"],
+    "execution": "hybrid",
+    "model_policy": "provider-agnostic",
+    "byok": true,
+    "self_host": true,
+    "open_source": true,
+    "license": "AGPL-3.0",
+    "pricing": {
+      "model": "hybrid",
+      "free_tier": true,
+      "starting_price_usd_month": null,
+      "note": "The self-hostable client/server is free; cloud plans and model usage are priced separately."
+    },
+    "best_for": ["large planned changes", "terminal workflows with explicit plans and versioned changes"],
+    "strengths": ["Planning and context management for large repositories", "sandboxed review before apply", "self-host and multi-provider paths"],
+    "limitations": ["Terminal-first", "more ceremony than lightweight edit agents", "cloud and model costs vary"],
+    "official_sources": [
+      {"label": "Docs", "url": "https://docs.plandex.ai/"},
+      {"label": "Repository", "url": "https://github.com/plandex-ai/plandex"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "qoder",
+    "name": "Qoder",
+    "vendor": "Qoder",
+    "status": "active",
+    "category": "ai-editor",
+    "interfaces": ["desktop", "ide", "cli", "web", "mobile", "api"],
+    "platforms": ["Windows", "macOS", "Linux", "JetBrains", "Managed cloud"],
+    "execution": "hybrid",
+    "model_policy": "curated-multi-model",
+    "byok": true,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing": {
+      "model": "subscription",
+      "free_tier": true,
+      "starting_price_usd_month": 20,
+      "note": "Free with limited use and trial credits; Pro $20/month, Pro+ $60, and Ultra $200. Premium credits and model multipliers apply."
+    },
+    "best_for": ["IDE-to-cloud agent continuity", "repository knowledge and spec-driven tasks"],
+    "strengths": ["Desktop, JetBrains, CLI, SDK, Quest, cloud, and mobile control", "Repo Wiki, Knowledge Cards, NEXT edits, Experts, MCP, and skills", "curated models plus selected BYOK providers"],
+    "limitations": ["Proprietary and not self-hosted", "credit multipliers complicate direct cost comparison", "several flagship features require fixed managed models"],
+    "official_sources": [
+      {"label": "Docs", "url": "https://docs.qoder.com/"},
+      {"label": "Pricing", "url": "https://docs.qoder.com/account/pricing"},
+      {"label": "Custom models", "url": "https://docs.qoder.com/user-guide/chat/custom-models"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "qwen-code",
+    "name": "Qwen Code",
+    "vendor": "Alibaba Qwen",
+    "status": "active",
+    "category": "cli-agent",
+    "interfaces": ["cli", "api", "ci"],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "execution": "local-tools",
+    "model_policy": "provider-agnostic",
+    "byok": true,
+    "self_host": true,
+    "open_source": true,
+    "license": "Apache-2.0",
+    "pricing": {
+      "model": "free",
+      "free_tier": true,
+      "starting_price_usd_month": 0,
+      "note": "Client is free. The former Qwen OAuth free tier ended on 2026-04-15; use a coding plan, provider API, gateway, or local Ollama/vLLM/LM Studio."
+    },
+    "best_for": ["Qwen-optimized terminal work", "provider-neutral or fully local CLI agents"],
+    "strengths": ["OpenAI-, Anthropic-, Gemini-, Qwen-compatible and local providers", "headless/server modes, sandbox, MCP, memory, skills, and subagents", "no required vendor inference"],
+    "limitations": ["Terminal-first", "provider setup can be complex", "tool use and quality vary by selected model"],
+    "official_sources": [
+      {"label": "Overview", "url": "https://qwenlm.github.io/qwen-code-docs/en/users/overview/"},
+      {"label": "Providers", "url": "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/model-providers/"},
+      {"label": "Authentication", "url": "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/auth/"},
+      {"label": "Repository", "url": "https://github.com/QwenLM/qwen-code"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "replit-agent",
+    "name": "Replit Agent",
+    "vendor": "Replit",
+    "status": "active",
+    "category": "cloud-agent",
+    "interfaces": ["web", "mobile"],
+    "platforms": ["Replit managed workspace"],
+    "execution": "cloud-agent",
+    "model_policy": "vendor-models",
+    "byok": false,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing": {
+      "model": "hybrid",
+      "free_tier": true,
+      "starting_price_usd_month": 25,
+      "note": "Starter is free with limited Agent credits. Core is $25 monthly ($20/month annual) and Pro $100 monthly ($95/month annual), with included credits and effort-based Agent billing."
+    },
+    "best_for": ["idea-to-deployed-app workflows", "browser-based prototyping with integrated infrastructure"],
+    "strengths": ["Application, database, preview, deployment, and integrations in one environment", "parallel tasks and checkpoints", "low setup burden"],
+    "limitations": ["Replit-centric and proprietary", "effort-based cost varies", "less natural for arbitrary private enterprise monorepos"],
+    "official_sources": [
+      {"label": "Agent", "url": "https://replit.com/agent4"},
+      {"label": "Pricing", "url": "https://replit.com/pricing"},
+      {"label": "AI billing", "url": "https://docs.replit.com/billing/ai-billing"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "roo-code",
+    "name": "Roo Code",
+    "vendor": "Roo Code",
+    "status": "discontinued",
+    "category": "ide-extension",
+    "interfaces": ["ide"],
+    "platforms": ["VS Code family"],
+    "execution": "local-tools",
+    "model_policy": "provider-agnostic",
+    "byok": true,
+    "self_host": true,
+    "open_source": true,
+    "license": "Apache-2.0",
+    "pricing": {
+      "model": "free",
+      "free_tier": true,
+      "starting_price_usd_month": 0,
+      "note": "The extension shut down on 2026-05-15. The frozen code remains available; migrate to an active successor rather than starting a new deployment."
+    },
+    "best_for": ["historical reference", "migration assessment for existing installations"],
+    "strengths": ["Previously offered broad providers, modes, terminal, browser, and MCP", "source remains available"],
+    "limitations": ["Discontinued", "no active service or maintenance", "official repository recommends migration"],
+    "official_sources": [
+      {"label": "Repository and shutdown notice", "url": "https://github.com/RooCodeInc/Roo-Code"},
+      {"label": "Archived docs", "url": "https://docs.roocode.com/"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "sourcegraph-cody",
+    "name": "Sourcegraph Cody",
+    "vendor": "Sourcegraph",
+    "status": "active",
+    "category": "ide-extension",
+    "interfaces": ["ide", "web"],
+    "platforms": ["VS Code", "JetBrains", "Sourcegraph Enterprise"],
+    "execution": "hybrid",
+    "model_policy": "curated-multi-model",
+    "byok": true,
+    "self_host": true,
+    "open_source": false,
+    "license": "Current product proprietary; public snapshot Apache-2.0",
+    "pricing": {
+      "model": "contact-sales",
+      "free_tier": false,
+      "starting_price_usd_month": null,
+      "note": "Individual Free and Pro plans ended in 2025. Current Cody access is enterprise-oriented; Sourcegraph Enterprise has a published starting package and final AI pricing is sales-led."
+    },
+    "best_for": ["enterprise cross-repository context", "Sourcegraph search and governance deployments"],
+    "strengths": ["Indexed context across large code estates", "private-cloud and enterprise administration paths", "centralized code intelligence"],
+    "limitations": ["Not positioned for individual users", "high entry and operational cost", "less terminal-autonomous than CLI-first agents"],
+    "official_sources": [
+      {"label": "Plan changes", "url": "https://sourcegraph.com/blog/changes-to-cody-free-pro-and-enterprise-starter-plans"},
+      {"label": "Pricing", "url": "https://sourcegraph.com/pricing"},
+      {"label": "Public snapshot", "url": "https://github.com/sourcegraph/cody-public-snapshot"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "tabnine",
+    "name": "Tabnine",
+    "vendor": "Tabnine",
+    "status": "active",
+    "category": "ide-extension",
+    "interfaces": ["ide", "cli"],
+    "platforms": ["VS Code", "JetBrains", "Visual Studio", "Eclipse", "other enterprise IDEs"],
+    "execution": "hybrid",
+    "model_policy": "curated-multi-model",
+    "byok": true,
+    "self_host": true,
+    "open_source": false,
+    "license": null,
+    "pricing": {
+      "model": "contact-sales",
+      "free_tier": null,
+      "starting_price_usd_month": null,
+      "note": "Current team and enterprise pricing, deployment, and model options should be confirmed with Tabnine; public packaging changes over time."
+    },
+    "best_for": ["enterprise-controlled code assistance", "private and isolated deployments"],
+    "strengths": ["Broad IDE coverage", "private deployment and governance options", "completion, chat, agent, review, and testing workflows"],
+    "limitations": ["Pricing and capabilities are plan-dependent", "not an open-source client", "strongest differentiators target organizations"],
+    "official_sources": [
+      {"label": "Product", "url": "https://www.tabnine.com/"},
+      {"label": "Pricing", "url": "https://www.tabnine.com/pricing"},
+      {"label": "Docs", "url": "https://docs.tabnine.com/"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "warp",
+    "name": "Warp",
+    "vendor": "Warp",
+    "status": "active",
+    "category": "cli-agent",
+    "interfaces": ["desktop", "cli", "web"],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "execution": "hybrid",
+    "model_policy": "curated-multi-model",
+    "byok": false,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing": {
+      "model": "subscription",
+      "free_tier": true,
+      "starting_price_usd_month": null,
+      "note": "A free tier and paid individual/team plans exist; current included AI usage and annual/monthly prices should be checked on the official pricing page."
+    },
+    "best_for": ["AI-native terminal users", "command, debugging, and multi-agent terminal workflows"],
+    "strengths": ["Modern terminal plus agents and workflows", "shared terminal knowledge and cloud delegation", "cross-platform desktop support"],
+    "limitations": ["Proprietary terminal environment", "managed models and usage pools", "not a full graphical IDE"],
+    "official_sources": [
+      {"label": "Product", "url": "https://www.warp.dev/"},
+      {"label": "Pricing", "url": "https://www.warp.dev/pricing"},
+      {"label": "Docs", "url": "https://docs.warp.dev/"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "windsurf-devin-desktop",
+    "name": "Windsurf (Devin Desktop)",
+    "vendor": "Cognition",
+    "status": "active",
+    "category": "ai-editor",
+    "interfaces": ["desktop", "ide", "cli", "web"],
+    "platforms": ["Windows", "macOS", "Linux", "JetBrains", "VS Code", "Vim", "Neovim", "Jupyter"],
+    "execution": "hybrid",
+    "model_policy": "curated-multi-model",
+    "byok": true,
+    "self_host": false,
+    "open_source": false,
+    "license": null,
+    "pricing": {
+      "model": "subscription",
+      "free_tier": true,
+      "starting_price_usd_month": 20,
+      "note": "Current standalone editor documentation uses the Devin Desktop name. Windsurf pricing lists Free, Pro $20/month, Max $200/month, and Team $80/month."
+    },
+    "best_for": ["integrated editor plus local/cloud agents", "Cognition and frontier-model workflows"],
+    "strengths": ["Tab, Cascade/Devin Local, context, MCP, rules, skills, and workflows", "standalone editor plus plugins and cloud Devin", "local-to-cloud continuity"],
+    "limitations": ["Transitional branding can confuse product comparisons", "proprietary with narrow BYOK support", "quota and overage rules vary by model"],
+    "official_sources": [
+      {"label": "Current naming", "url": "https://docs.windsurf.com/windsurf/getting-started"},
+      {"label": "Models", "url": "https://docs.windsurf.com/windsurf/models"},
+      {"label": "Pricing", "url": "https://windsurf.com/pricing"}
+    ],
+    "last_verified": "2026-08-04"
+  },
+  {
+    "id": "zed",
+    "name": "Zed",
+    "vendor": "Zed Industries",
+    "status": "active",
+    "category": "ai-editor",
+    "interfaces": ["desktop", "cli"],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "execution": "local-tools",
+    "model_policy": "provider-agnostic",
+    "byok": true,
+    "self_host": true,
+    "open_source": true,
+    "license": "GPL-3.0-or-later; selected components Apache-2.0",
+    "pricing": {
+      "model": "hybrid",
+      "free_tier": true,
+      "starting_price_usd_month": 10,
+      "note": "Editor, own API keys, and local models are free. Zed Pro is $10/month with included hosted-model credit; hosted overage is token-billed with a service margin."
+    },
+    "best_for": ["fast native editing with flexible agents", "local, BYOK, hosted, and ACP agent choice"],
+    "strengths": ["Native Rust editor, collaboration, Agent Panel, terminal threads, and parallel agents", "hosted providers, direct keys, subscriptions, gateways, Ollama, LM Studio, and llama.cpp", "ACP integration"],
+    "limitations": ["No web editor", "hosted-model economics differ from direct provider use", "switching editors has workflow cost"],
+    "official_sources": [
+      {"label": "AI overview", "url": "https://zed.dev/docs/ai/overview"},
+      {"label": "Providers", "url": "https://zed.dev/docs/ai/llm-providers"},
+      {"label": "Pricing", "url": "https://zed.dev/docs/account/plans-and-pricing"},
+      {"label": "Repository", "url": "https://github.com/zed-industries/zed"}
+    ],
+    "last_verified": "2026-08-04"
+  }
+]

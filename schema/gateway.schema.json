@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Yunushan/llm-tool-atlas/schema/gateway.schema.json",
+  "title": "LLM Tool Atlas gateway record",
+  "type": "object",
+  "required": [
+    "id", "name", "vendor", "kind", "delivery", "byok", "self_host",
+    "open_source", "pricing_note", "strengths", "limitations",
+    "official_sources", "last_verified"
+  ],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "name": {"type": "string"},
+    "vendor": {"type": "string"},
+    "kind": {"enum": ["model-marketplace", "api-gateway", "inference-platform", "cloud-model-platform"]},
+    "delivery": {"enum": ["managed", "self-hosted", "managed-and-self-hosted"]},
+    "byok": {"type": "boolean"},
+    "self_host": {"type": "boolean"},
+    "open_source": {"type": "boolean"},
+    "license": {"type": ["string", "null"]},
+    "pricing_note": {"type": "string"},
+    "strengths": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "limitations": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "official_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label", "url"],
+        "properties": {"label": {"type": "string"}, "url": {"type": "string", "pattern": "^https://"}},
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "last_verified": {"type": "string", "format": "date"}
+  },
+  "additionalProperties": false
+}

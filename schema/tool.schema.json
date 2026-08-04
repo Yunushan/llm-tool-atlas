@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Yunushan/llm-tool-atlas/schema/tool.schema.json",
+  "title": "LLM Tool Atlas tool record",
+  "type": "object",
+  "required": [
+    "id", "name", "vendor", "status", "category", "interfaces", "execution", "model_policy",
+    "open_source", "pricing", "best_for", "strengths", "limitations",
+    "official_sources", "last_verified"
+  ],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "name": {"type": "string", "minLength": 1},
+    "vendor": {"type": "string", "minLength": 1},
+    "status": {"enum": ["active", "legacy", "discontinued"]},
+    "category": {
+      "enum": ["cli-agent", "ide-extension", "ai-editor", "cloud-agent", "local-runtime", "web-gui"]
+    },
+    "interfaces": {
+      "type": "array",
+      "items": {"enum": ["cli", "ide", "desktop", "web", "api", "ci", "mobile"]},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "execution": {"enum": ["local-tools", "cloud-agent", "hybrid"]},
+    "platforms": {"type": "array", "items": {"type": "string"}},
+    "model_policy": {"enum": ["vendor-models", "curated-multi-model", "provider-agnostic", "local-only"]},
+    "byok": {"type": "boolean"},
+    "self_host": {"type": "boolean"},
+    "open_source": {"type": "boolean"},
+    "license": {"type": ["string", "null"]},
+    "pricing": {
+      "type": "object",
+      "required": ["model", "free_tier", "starting_price_usd_month", "note"],
+      "properties": {
+        "model": {"enum": ["free", "subscription", "usage-based", "hybrid", "contact-sales"]},
+        "free_tier": {"type": ["boolean", "null"]},
+        "starting_price_usd_month": {"type": ["number", "null"], "minimum": 0},
+        "note": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "best_for": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "strengths": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "limitations": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "official_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label", "url"],
+        "properties": {
+          "label": {"type": "string"},
+          "url": {"type": "string", "pattern": "^https://"}
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "last_verified": {"type": "string", "format": "date"}
+  },
+  "additionalProperties": false
+}

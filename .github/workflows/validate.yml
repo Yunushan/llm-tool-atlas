@@ -1,0 +1,40 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate source data
+        run: python3 scripts/validate_catalog.py
+
+      - name: Verify generated tables
+        run: python3 scripts/render_catalog.py --check
+
+      - name: Check local Markdown links
+        run: python3 scripts/check_local_links.py
+
+      - name: Run tests
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Fail scheduled run on stale records
+        if: github.event_name == 'schedule'
+        run: python3 scripts/validate_catalog.py --max-age-days 120
