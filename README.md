@@ -21,7 +21,8 @@ and tradeoffs.**
 [Pricing](docs/pricing.md) ·
 [Local AI](docs/comparisons/local-models.md) ·
 [Security](docs/privacy-security.md) ·
-[Contributing](CONTRIBUTING.md)**
+[Contributing](CONTRIBUTING.md) ·
+[Releasing](docs/releasing.md)**
 
 </div>
 
@@ -87,7 +88,7 @@ link in the generated catalog.
 | Area | Canonical data or guide | Questions it answers |
 | --- | --- | --- |
 | Coding tools | [Tool catalog](docs/generated/tools.md) | Interface, OS/editor support, execution, model policy, BYOK, openness, price, strengths, limitations |
-| Models | [Model-family catalog](docs/generated/models.md) | Current representatives, modalities, access, open weights, context, API price, coding notes |
+| Models | [Model-family catalog](docs/generated/models.md) | Current representatives, controlled inputs/outputs, capabilities, access, open weights, context, API price, coding notes |
 | Gateways | [Gateway catalog](docs/generated/gateways.md) | Marketplace vs gateway vs inference cloud, BYOK, self-hosting, fees, routing, observability |
 | Direct comparisons | [Coding agents](docs/comparisons/coding-agents.md) | Codex vs Claude Code vs Cursor vs Qoder vs Qwen Code and provider-neutral alternatives |
 | Local deployment | [Local models](docs/comparisons/local-models.md) | Agents, runtimes, hardware/operations tradeoffs, offline evaluation |
@@ -99,6 +100,8 @@ link in the generated catalog.
 
 - **Continue is legacy/archived.** Existing configurations may remain useful,
   but it is not ranked as an active choice for a new long-lived deployment.
+- **Plandex is legacy.** Its self-hosted/local client remains available, while
+  Plandex Cloud wound down and stopped accepting new users in October 2025.
 - **Roo Code shut down on 2026-05-15.** The frozen source remains cataloged so
   readers do not mistake old recommendations for current advice.
 - **Windsurf's standalone editor is now documented as Devin Desktop.** The atlas
@@ -117,7 +120,8 @@ link in the generated catalog.
 | [`docs/comparisons/`](docs/comparisons/) | Scenario-based editorial comparisons |
 | [`scripts/validate_catalog.py`](scripts/validate_catalog.py) | Dependency-free structural, date, source, and uniqueness checks |
 | [`scripts/render_catalog.py`](scripts/render_catalog.py) | Rebuilds or verifies generated tables |
-| [`scripts/audit_links.py`](scripts/audit_links.py) | Optional best-effort official-link audit |
+| [`scripts/audit_links.py`](scripts/audit_links.py) | Bounded official-link audit with JSON report output |
+| [`scripts/verify.py`](scripts/verify.py) | Cross-platform structural, generated-file, link, release, and test gate |
 | [`.github/workflows/validate.yml`](.github/workflows/validate.yml) | CI, tests, generated-file drift, and scheduled freshness gate |
 
 ## Validate or extend the atlas
@@ -127,15 +131,13 @@ Only Python's standard library is required:
 ```bash
 git clone https://github.com/Yunushan/llm-tool-atlas.git
 cd llm-tool-atlas
-make check
+python scripts/verify.py
 ```
 
 After changing canonical data:
 
 ```bash
-python3 scripts/validate_catalog.py
-python3 scripts/render_catalog.py
-python3 -m unittest discover -s tests -v
+python scripts/verify.py
 ```
 
 Corrections should include a direct official pricing page, documentation page,
@@ -154,7 +156,7 @@ model card, release note, or upstream repository plus the date checked. See
 
 ## License and disclaimer
 
-Repository code and original documentation are released under the
+Repository code, canonical JSON data, schemas, and original documentation are released under the
 [Zero-Clause BSD (0BSD) license](LICENSE). Product names and trademarks belong
 to their respective owners. Linked third-party material and model weights keep
 their own licenses and terms.

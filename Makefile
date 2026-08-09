@@ -1,17 +1,27 @@
-.PHONY: check render test validate audit-links
+PYTHON ?= python3
 
-check: validate test
-	python3 scripts/render_catalog.py --check
-	python3 scripts/check_local_links.py
+.PHONY: check render test validate release-check release audit-links freshness
+
+check:
+	$(PYTHON) scripts/verify.py
 
 render:
-	python3 scripts/render_catalog.py
+	$(PYTHON) scripts/render_catalog.py
 
 test:
-	python3 -m unittest discover -s tests -v
+	$(PYTHON) -m unittest discover -s tests -v
 
 validate:
-	python3 scripts/validate_catalog.py
+	$(PYTHON) scripts/validate_catalog.py
+
+release-check:
+	$(PYTHON) scripts/check_release.py
+
+release:
+	$(PYTHON) scripts/build_release.py
 
 audit-links:
-	python3 scripts/audit_links.py
+	$(PYTHON) scripts/audit_links.py --timeout 15 --workers 12 --retries 2
+
+freshness:
+	$(PYTHON) scripts/verify.py --max-age-days 90

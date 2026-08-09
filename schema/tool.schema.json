@@ -1,62 +1,136 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/Yunushan/llm-tool-atlas/schema/tool.schema.json",
-  "title": "LLM Tool Atlas tool record",
-  "type": "object",
-  "required": [
-    "id", "name", "vendor", "status", "category", "interfaces", "execution", "model_policy",
-    "open_source", "pricing", "best_for", "strengths", "limitations",
-    "official_sources", "last_verified"
-  ],
-  "properties": {
-    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
-    "name": {"type": "string", "minLength": 1},
-    "vendor": {"type": "string", "minLength": 1},
-    "status": {"enum": ["active", "legacy", "discontinued"]},
-    "category": {
-      "enum": ["cli-agent", "ide-extension", "ai-editor", "cloud-agent", "local-runtime", "web-gui"]
-    },
-    "interfaces": {
-      "type": "array",
-      "items": {"enum": ["cli", "ide", "desktop", "web", "api", "ci", "mobile"]},
-      "minItems": 1,
-      "uniqueItems": true
-    },
-    "execution": {"enum": ["local-tools", "cloud-agent", "hybrid"]},
-    "platforms": {"type": "array", "items": {"type": "string"}},
-    "model_policy": {"enum": ["vendor-models", "curated-multi-model", "provider-agnostic", "local-only"]},
-    "byok": {"type": "boolean"},
-    "self_host": {"type": "boolean"},
-    "open_source": {"type": "boolean"},
-    "license": {"type": ["string", "null"]},
-    "pricing": {
-      "type": "object",
-      "required": ["model", "free_tier", "starting_price_usd_month", "note"],
-      "properties": {
-        "model": {"enum": ["free", "subscription", "usage-based", "hybrid", "contact-sales"]},
-        "free_tier": {"type": ["boolean", "null"]},
-        "starting_price_usd_month": {"type": ["number", "null"], "minimum": 0},
-        "note": {"type": "string"}
+  "$id": "https://raw.githubusercontent.com/Yunushan/llm-tool-atlas/main/schema/tool.schema.json",
+  "title": "LLM Tool Atlas tool catalog",
+  "type": "array",
+  "minItems": 1,
+  "uniqueItems": true,
+  "items": {
+    "type": "object",
+    "required": [
+      "id", "name", "vendor", "status", "category", "interfaces", "execution", "platforms",
+      "model_policy", "byok", "self_host", "open_source", "pricing", "best_for", "strengths", "limitations",
+      "official_sources", "last_verified"
+    ],
+    "properties": {
+      "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+      "name": {"type": "string", "minLength": 1, "pattern": "\\S"},
+      "vendor": {"type": "string", "minLength": 1, "pattern": "\\S"},
+      "status": {"enum": ["active", "legacy", "discontinued"]},
+      "category": {
+        "enum": ["cli-agent", "ide-extension", "ai-editor", "cloud-agent", "local-runtime", "web-gui"]
       },
-      "additionalProperties": false
-    },
-    "best_for": {"type": "array", "items": {"type": "string"}, "minItems": 1},
-    "strengths": {"type": "array", "items": {"type": "string"}, "minItems": 1},
-    "limitations": {"type": "array", "items": {"type": "string"}, "minItems": 1},
-    "official_sources": {
-      "type": "array",
-      "items": {
+      "interfaces": {
+        "type": "array",
+        "items": {"enum": ["cli", "ide", "desktop", "web", "api", "ci", "mobile"]},
+        "minItems": 1,
+        "uniqueItems": true
+      },
+      "execution": {"enum": ["local-tools", "cloud-agent", "hybrid"]},
+      "platforms": {
         "type": "object",
-        "required": ["label", "url"],
+        "required": ["operating_systems", "editors", "deployment", "integrations", "notes"],
         "properties": {
-          "label": {"type": "string"},
-          "url": {"type": "string", "pattern": "^https://"}
+          "operating_systems": {
+            "type": "array",
+            "items": {"enum": ["windows", "macos", "linux", "freebsd", "ios"]},
+            "uniqueItems": true
+          },
+          "editors": {
+            "type": "array",
+            "items": {"enum": ["vs-code", "visual-studio", "jetbrains", "xcode", "neovim", "vim", "eclipse", "zed", "jupyter"]},
+            "uniqueItems": true
+          },
+          "deployment": {
+            "type": "array",
+            "items": {"enum": ["wsl", "containers", "kubernetes", "managed-cloud", "managed-workspace"]},
+            "uniqueItems": true
+          },
+          "integrations": {
+            "type": "array",
+            "items": {"enum": ["github", "github-actions", "gitlab", "bitbucket", "slack", "claude-desktop", "sourcegraph-enterprise"]},
+            "uniqueItems": true
+          },
+          "notes": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1, "pattern": "\\S"},
+            "uniqueItems": true
+          }
         },
+        "anyOf": [
+          {"properties": {"operating_systems": {"minItems": 1}}},
+          {"properties": {"editors": {"minItems": 1}}},
+          {"properties": {"deployment": {"minItems": 1}}},
+          {"properties": {"integrations": {"minItems": 1}}},
+          {"properties": {"notes": {"minItems": 1}}}
+        ],
         "additionalProperties": false
       },
-      "minItems": 1
+      "model_policy": {"enum": ["vendor-models", "curated-multi-model", "provider-agnostic", "local-only"]},
+      "byok": {"type": "boolean"},
+      "self_host": {"type": "boolean"},
+      "open_source": {"type": "boolean"},
+      "license": {"type": ["string", "null"], "minLength": 1, "pattern": "\\S"},
+      "pricing": {
+        "type": "object",
+        "required": ["model", "free_tier", "starting_price_usd_month", "note"],
+        "properties": {
+          "model": {"enum": ["free", "subscription", "usage-based", "hybrid", "contact-sales"]},
+          "free_tier": {"type": ["boolean", "null"]},
+          "starting_price_usd_month": {"type": ["number", "null"], "minimum": 0, "maximum": 1000000000},
+          "note": {"type": "string", "minLength": 1, "pattern": "\\S"}
+        },
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {"properties": {"model": {"const": "free"}}, "required": ["model"]},
+            "then": {
+              "properties": {
+                "free_tier": {"const": true},
+                "starting_price_usd_month": {"const": 0}
+              }
+            }
+          }
+        ]
+      },
+      "best_for": {
+        "type": "array",
+        "items": {"type": "string", "minLength": 1, "pattern": "\\S"},
+        "minItems": 1,
+        "uniqueItems": true
+      },
+      "strengths": {
+        "type": "array",
+        "items": {"type": "string", "minLength": 1, "pattern": "\\S"},
+        "minItems": 1,
+        "uniqueItems": true
+      },
+      "limitations": {
+        "type": "array",
+        "items": {"type": "string", "minLength": 1, "pattern": "\\S"},
+        "minItems": 1,
+        "uniqueItems": true
+      },
+      "official_sources": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["label", "url"],
+          "properties": {
+            "label": {"type": "string", "minLength": 1, "pattern": "\\S"},
+            "url": {"type": "string", "format": "uri", "pattern": "^https://"}
+          },
+          "additionalProperties": false
+        },
+        "minItems": 1,
+        "uniqueItems": true
+      },
+      "last_verified": {
+        "type": "string",
+        "format": "date",
+        "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+      }
     },
-    "last_verified": {"type": "string", "format": "date"}
-  },
-  "additionalProperties": false
+    "additionalProperties": false
+  }
 }

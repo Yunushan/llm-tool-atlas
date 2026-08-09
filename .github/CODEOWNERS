@@ -1,0 +1,10 @@
+# Default ownership and especially sensitive publication surfaces.
+* @Yunushan
+/.github/ @Yunushan
+/data/ @Yunushan
+/schema/ @Yunushan
+/scripts/ @Yunushan
+/VERSION @Yunushan
+/CITATION.cff @Yunushan
+/CHANGELOG.md @Yunushan
+/LICENSE @Yunushan

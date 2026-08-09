@@ -22,7 +22,12 @@ not guaranteed at the moment you read it.
 ## Facts, judgments, and unknowns
 
 - **Facts** belong in `data/` and require official sources.
-- **Judgments** belong in guides and must explain the workload or tradeoff.
+- `best_for`, `strengths`, `limitations`, and model `coding_notes` are explicit
+  maintainer assessments kept beside the facts so generated tables remain useful.
+  Contributors must write them as bounded workload observations, avoid
+  unqualified superlatives, and explain the tradeoff in a guide when it is not
+  self-evident. A record's `official_sources` list is evidence for the record;
+  pull requests must identify which source supports each changed factual claim.
 - **Unknown or variable facts** are recorded as `null`, `varies`, or a short
   note. We would rather show an honest gap than manufacture precision.
 
@@ -43,6 +48,18 @@ Prices are shown in USD and exclude taxes unless a source says otherwise.
 
 “Unlimited” is never interpreted as infinite. Fair-use rules, rate limits,
 model multipliers, rolling windows, and regional availability may still apply.
+`starting_price_usd_month` is the lowest advertised individual monthly entry
+price; `0` means no paid subscription is required for the listed mode, while
+`null` means that the price is variable, unpublished, or incomparable.
+
+## Capability and platform fields
+
+Model input and output modalities are controlled I/O vocabularies. Capabilities
+such as coding and computer use are separate from I/O, so a capability is not
+silently presented as a modality. Tool availability is split into operating
+systems, editors, deployment modes, integrations, and notes; an empty dimension
+means not directly applicable or inherited rather than a promise of universal
+support.
 
 ## Comparison dimensions
 
@@ -72,7 +89,10 @@ reproducible results.
 - Pricing and active-model claims should be rechecked at least every 90 days.
 - Preview products and deprecation dates should be checked more frequently.
 - A stale entry remains visible but is not silently presented as current.
-- The validator flags future dates and malformed records; scheduled CI opens a
-  report when records age past the configured threshold.
+- The validator flags future dates and malformed records; scheduled CI fails the
+  freshness job when records age past the configured threshold. The separate
+  official-link job retains a JSON audit artifact and fails on terminal link
+  errors. Network interception must use an explicitly trusted PEM bundle; TLS
+  verification is never disabled.
 
 See [Contributing](../CONTRIBUTING.md) for the update workflow.

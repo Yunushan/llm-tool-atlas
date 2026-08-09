@@ -4,37 +4,67 @@ on:
   push:
     branches: [main]
   pull_request:
-  schedule:
-    - cron: "17 6 * * 1"
   workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: validate-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+  PYTHONUTF8: "1"
+
 jobs:
-  catalog:
-    runs-on: ubuntu-latest
+  verify:
+    name: verify (${{ matrix.label }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - label: Ubuntu / Python 3.10
+            os: ubuntu-24.04
+            python: "3.10"
+          - label: Ubuntu / Python 3.14
+            os: ubuntu-24.04
+            python: "3.14"
+          - label: Windows / Python 3.14
+            os: windows-2025
+            python: "3.14"
+          - label: macOS / Python 3.14
+            os: macos-15
+            python: "3.14"
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
-          python-version: "3.12"
+          python-version: ${{ matrix.python }}
 
-      - name: Validate source data
-        run: python3 scripts/validate_catalog.py
+      - name: Run complete verification
+        run: python scripts/verify.py
 
-      - name: Verify generated tables
-        run: python3 scripts/render_catalog.py --check
-
-      - name: Check local Markdown links
-        run: python3 scripts/check_local_links.py
-
-      - name: Run tests
-        run: python3 -m unittest discover -s tests -v
-
-      - name: Fail scheduled run on stale records
-        if: github.event_name == 'schedule'
-        run: python3 scripts/validate_catalog.py --max-age-days 120
+  catalog:
+    name: catalog
+    if: ${{ always() }}
+    needs: verify
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - name: Require every verification job to pass
+        shell: bash
+        env:
+          MATRIX_RESULT: ${{ needs.verify.result }}
+        run: |
+          if [[ "$MATRIX_RESULT" != "success" ]]; then
+            echo "Verification matrix result: $MATRIX_RESULT" >&2
+            exit 1
+          fi

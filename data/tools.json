@@ -6,7 +6,13 @@
     "status": "active",
     "category": "cli-agent",
     "interfaces": ["cli"],
-    "platforms": ["Windows", "macOS", "Linux"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": [],
+      "deployment": [],
+      "integrations": [],
+      "notes": []
+    },
     "execution": "local-tools",
     "model_policy": "provider-agnostic",
     "byok": true,
@@ -36,7 +42,13 @@
     "status": "active",
     "category": "cli-agent",
     "interfaces": ["cli", "ide", "web"],
-    "platforms": ["macOS", "Linux", "Windows via WSL", "VS Code", "Neovim", "Zed"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": ["vs-code", "neovim", "zed"],
+      "deployment": ["wsl"],
+      "integrations": [],
+      "notes": ["Windows support is via WSL"]
+    },
     "execution": "hybrid",
     "model_policy": "curated-multi-model",
     "byok": false,
@@ -66,7 +78,13 @@
     "status": "active",
     "category": "ide-extension",
     "interfaces": ["ide", "cli", "web"],
-    "platforms": ["VS Code", "JetBrains", "Visual Studio", "Eclipse", "macOS", "Linux"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": ["vs-code", "jetbrains", "visual-studio", "eclipse"],
+      "deployment": [],
+      "integrations": [],
+      "notes": []
+    },
     "execution": "hybrid",
     "model_policy": "vendor-models",
     "byok": false,
@@ -85,7 +103,8 @@
     "official_sources": [
       {"label": "Product", "url": "https://aws.amazon.com/q/developer/"},
       {"label": "Pricing", "url": "https://aws.amazon.com/q/developer/pricing/"},
-      {"label": "Docs", "url": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html"}
+      {"label": "Docs", "url": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html"},
+      {"label": "IDE setup and platform support", "url": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-in-IDE-setup.html"}
     ],
     "last_verified": "2026-08-04"
   },
@@ -96,7 +115,13 @@
     "status": "active",
     "category": "web-gui",
     "interfaces": ["desktop", "web", "api"],
-    "platforms": ["Windows", "macOS", "Linux", "Docker"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": [],
+      "deployment": ["containers"],
+      "integrations": [],
+      "notes": []
+    },
     "execution": "local-tools",
     "model_policy": "provider-agnostic",
     "byok": true,
@@ -126,7 +151,13 @@
     "status": "active",
     "category": "cli-agent",
     "interfaces": ["cli", "ide", "desktop", "web", "mobile"],
-    "platforms": ["Windows", "macOS", "Linux", "VS Code", "JetBrains", "Claude Desktop"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": ["vs-code", "jetbrains"],
+      "deployment": [],
+      "integrations": ["claude-desktop"],
+      "notes": []
+    },
     "execution": "hybrid",
     "model_policy": "vendor-models",
     "byok": false,
@@ -156,7 +187,13 @@
     "status": "active",
     "category": "ide-extension",
     "interfaces": ["ide", "cli", "ci"],
-    "platforms": ["Windows", "macOS", "Linux", "VS Code family", "JetBrains"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": ["vs-code", "jetbrains"],
+      "deployment": [],
+      "integrations": [],
+      "notes": []
+    },
     "execution": "hybrid",
     "model_policy": "provider-agnostic",
     "byok": true,
@@ -164,10 +201,10 @@
     "open_source": true,
     "license": "Apache-2.0",
     "pricing": {
-      "model": "hybrid",
+      "model": "usage-based",
       "free_tier": true,
-      "starting_price_usd_month": 9.99,
-      "note": "The core client and some hosted models are free; ClinePass starts at $9.99/month, with hosted PAYG or BYOK/local inference costs separate."
+      "starting_price_usd_month": null,
+      "note": "The open-source client is free for individuals; hosted inference is usage-based at model cost, and BYOK or local inference is supported. Enterprise terms are custom."
     },
     "best_for": ["approval-driven IDE agents", "broad BYOK and local model choice"],
     "strengths": ["Plan/Act workflow, checkpoints, terminal and browser tools", "30+ provider paths plus Ollama and LM Studio", "MCP and automation"],
@@ -175,6 +212,7 @@
     "official_sources": [
       {"label": "Overview", "url": "https://docs.cline.bot/cline-overview"},
       {"label": "Authentication", "url": "https://docs.cline.bot/getting-started/authorizing-with-cline"},
+      {"label": "Pricing", "url": "https://cline.bot/pricing"},
       {"label": "Repository", "url": "https://github.com/cline/cline"}
     ],
     "last_verified": "2026-08-04"
@@ -186,7 +224,13 @@
     "status": "active",
     "category": "cli-agent",
     "interfaces": ["desktop", "web", "cli", "ide", "ci", "mobile"],
-    "platforms": ["Windows", "macOS", "Linux", "VS Code family", "JetBrains"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": ["vs-code", "jetbrains"],
+      "deployment": [],
+      "integrations": [],
+      "notes": []
+    },
     "execution": "hybrid",
     "model_policy": "vendor-models",
     "byok": true,
@@ -206,7 +250,8 @@
       {"label": "Models", "url": "https://learn.chatgpt.com/docs/models"},
       {"label": "Pricing", "url": "https://learn.chatgpt.com/docs/pricing"},
       {"label": "CLI", "url": "https://learn.chatgpt.com/docs/codex/cli"},
-      {"label": "IDE", "url": "https://learn.chatgpt.com/docs/codex/ide"}
+      {"label": "IDE", "url": "https://learn.chatgpt.com/docs/codex/ide"},
+      {"label": "Open-source client repository", "url": "https://github.com/openai/codex"}
     ],
     "last_verified": "2026-08-04"
   },
@@ -217,7 +262,13 @@
     "status": "legacy",
     "category": "ide-extension",
     "interfaces": ["ide", "cli"],
-    "platforms": ["Windows", "macOS", "Linux", "VS Code", "JetBrains"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": ["vs-code", "jetbrains"],
+      "deployment": [],
+      "integrations": [],
+      "notes": []
+    },
     "execution": "local-tools",
     "model_policy": "provider-agnostic",
     "byok": true,
@@ -247,7 +298,13 @@
     "status": "active",
     "category": "ai-editor",
     "interfaces": ["desktop", "cli", "web", "mobile"],
-    "platforms": ["Windows", "macOS", "Linux", "iOS supervision"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux", "ios"],
+      "editors": [],
+      "deployment": [],
+      "integrations": [],
+      "notes": ["iOS support is for supervision rather than full development"]
+    },
     "execution": "hybrid",
     "model_policy": "curated-multi-model",
     "byok": true,
@@ -277,7 +334,13 @@
     "status": "active",
     "category": "cloud-agent",
     "interfaces": ["web", "api", "mobile"],
-    "platforms": ["Managed cloud workspace", "Slack", "GitHub", "GitLab", "Bitbucket"],
+    "platforms": {
+      "operating_systems": [],
+      "editors": [],
+      "deployment": ["managed-workspace"],
+      "integrations": ["slack", "github", "gitlab", "bitbucket"],
+      "notes": []
+    },
     "execution": "cloud-agent",
     "model_policy": "curated-multi-model",
     "byok": false,
@@ -307,7 +370,13 @@
     "status": "active",
     "category": "cli-agent",
     "interfaces": ["cli", "ide", "ci"],
-    "platforms": ["Windows", "macOS", "Linux", "VS Code", "GitHub Actions"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": ["vs-code"],
+      "deployment": [],
+      "integrations": ["github-actions"],
+      "notes": []
+    },
     "execution": "local-tools",
     "model_policy": "vendor-models",
     "byok": true,
@@ -337,7 +406,13 @@
     "status": "active",
     "category": "ide-extension",
     "interfaces": ["ide", "cli", "web", "desktop", "mobile", "ci"],
-    "platforms": ["VS Code", "Visual Studio", "JetBrains", "Xcode", "Neovim", "Eclipse", "GitHub"],
+    "platforms": {
+      "operating_systems": [],
+      "editors": ["vs-code", "visual-studio", "jetbrains", "xcode", "neovim", "eclipse"],
+      "deployment": [],
+      "integrations": ["github"],
+      "notes": []
+    },
     "execution": "hybrid",
     "model_policy": "curated-multi-model",
     "byok": true,
@@ -368,7 +443,13 @@
     "status": "active",
     "category": "cli-agent",
     "interfaces": ["desktop", "cli"],
-    "platforms": ["Windows", "macOS", "Linux"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": [],
+      "deployment": [],
+      "integrations": [],
+      "notes": []
+    },
     "execution": "local-tools",
     "model_policy": "provider-agnostic",
     "byok": true,
@@ -397,13 +478,19 @@
     "status": "active",
     "category": "local-runtime",
     "interfaces": ["desktop", "api"],
-    "platforms": ["Windows", "macOS", "Linux"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": [],
+      "deployment": [],
+      "integrations": [],
+      "notes": []
+    },
     "execution": "local-tools",
     "model_policy": "provider-agnostic",
     "byok": true,
     "self_host": true,
     "open_source": true,
-    "license": "AGPL-3.0",
+    "license": "Apache-2.0",
     "pricing": {
       "model": "free",
       "free_tier": true,
@@ -416,7 +503,8 @@
     "official_sources": [
       {"label": "Product", "url": "https://jan.ai/"},
       {"label": "Docs", "url": "https://jan.ai/docs/"},
-      {"label": "Repository", "url": "https://github.com/menloresearch/jan"}
+      {"label": "Repository", "url": "https://github.com/janhq/jan"},
+      {"label": "License", "url": "https://github.com/janhq/jan/blob/main/LICENSE"}
     ],
     "last_verified": "2026-08-04"
   },
@@ -427,7 +515,13 @@
     "status": "active",
     "category": "ide-extension",
     "interfaces": ["ide"],
-    "platforms": ["JetBrains IDEs"],
+    "platforms": {
+      "operating_systems": [],
+      "editors": ["jetbrains"],
+      "deployment": [],
+      "integrations": [],
+      "notes": []
+    },
     "execution": "local-tools",
     "model_policy": "curated-multi-model",
     "byok": true,
@@ -437,15 +531,15 @@
     "pricing": {
       "model": "subscription",
       "free_tier": true,
-      "starting_price_usd_month": null,
-      "note": "Free and paid AI service levels depend on the JetBrains product and subscription; BYOK and local-model capabilities also vary by version."
+      "starting_price_usd_month": 10,
+      "note": "The personal AI Pro plan starts at $10 USD per month; a free tier is available. Organization pricing and included credits differ, while BYOK and local-model capabilities vary by IDE version."
     },
     "best_for": ["native JetBrains workflows", "IDE-aware chat, completion, and refactoring"],
     "strengths": ["Deep IDE and language-service context", "works across the JetBrains product family", "supports multiple model access paths"],
     "limitations": ["Best experience requires JetBrains IDEs", "feature and quota matrix changes by product and plan"],
     "official_sources": [
       {"label": "Overview", "url": "https://www.jetbrains.com/help/ai-assistant/about-ai-assistant.html"},
-      {"label": "Pricing", "url": "https://www.jetbrains.com/ai-ides/buy/"}
+      {"label": "Pricing", "url": "https://www.jetbrains.com/help/ai-assistant/licensing-and-subscriptions.html"}
     ],
     "last_verified": "2026-08-04"
   },
@@ -456,7 +550,13 @@
     "status": "active",
     "category": "ide-extension",
     "interfaces": ["ide", "cli", "web", "ci"],
-    "platforms": ["Windows", "macOS", "Linux", "VS Code", "JetBrains"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": ["vs-code", "jetbrains"],
+      "deployment": [],
+      "integrations": [],
+      "notes": []
+    },
     "execution": "hybrid",
     "model_policy": "provider-agnostic",
     "byok": true,
@@ -486,7 +586,13 @@
     "status": "active",
     "category": "local-runtime",
     "interfaces": ["cli", "api"],
-    "platforms": ["Windows", "macOS", "Linux", "FreeBSD", "many CPU/GPU backends"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux", "freebsd"],
+      "editors": [],
+      "deployment": [],
+      "integrations": [],
+      "notes": ["Supports many CPU and GPU backends"]
+    },
     "execution": "local-tools",
     "model_policy": "local-only",
     "byok": false,
@@ -514,7 +620,13 @@
     "status": "active",
     "category": "local-runtime",
     "interfaces": ["desktop", "cli", "api"],
-    "platforms": ["Windows", "macOS", "Linux"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": [],
+      "deployment": [],
+      "integrations": [],
+      "notes": []
+    },
     "execution": "local-tools",
     "model_policy": "local-only",
     "byok": false,
@@ -543,7 +655,13 @@
     "status": "active",
     "category": "local-runtime",
     "interfaces": ["api", "web", "cli"],
-    "platforms": ["Linux", "macOS", "Windows via containers or compatible builds", "Kubernetes"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": [],
+      "deployment": ["containers", "kubernetes"],
+      "integrations": [],
+      "notes": ["Windows support uses containers or compatible builds"]
+    },
     "execution": "local-tools",
     "model_policy": "local-only",
     "byok": false,
@@ -572,7 +690,13 @@
     "status": "active",
     "category": "local-runtime",
     "interfaces": ["cli", "api"],
-    "platforms": ["Windows", "macOS", "Linux", "Docker"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": [],
+      "deployment": ["containers"],
+      "integrations": [],
+      "notes": []
+    },
     "execution": "local-tools",
     "model_policy": "local-only",
     "byok": false,
@@ -602,7 +726,13 @@
     "status": "active",
     "category": "cli-agent",
     "interfaces": ["cli", "desktop", "web", "ide", "ci"],
-    "platforms": ["Windows", "macOS", "Linux", "VS Code family", "Zed", "GitHub", "GitLab"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": ["vs-code", "zed"],
+      "deployment": [],
+      "integrations": ["github", "gitlab"],
+      "notes": []
+    },
     "execution": "hybrid",
     "model_policy": "provider-agnostic",
     "byok": true,
@@ -633,7 +763,13 @@
     "status": "active",
     "category": "cloud-agent",
     "interfaces": ["web", "cli", "api", "ci"],
-    "platforms": ["Docker", "Kubernetes", "Managed cloud", "GitHub", "GitLab"],
+    "platforms": {
+      "operating_systems": [],
+      "editors": [],
+      "deployment": ["containers", "kubernetes", "managed-cloud"],
+      "integrations": ["github", "gitlab"],
+      "notes": []
+    },
     "execution": "hybrid",
     "model_policy": "provider-agnostic",
     "byok": true,
@@ -663,7 +799,13 @@
     "status": "active",
     "category": "web-gui",
     "interfaces": ["web", "api"],
-    "platforms": ["Docker", "Kubernetes", "Linux", "Windows", "macOS"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": [],
+      "deployment": ["containers", "kubernetes"],
+      "integrations": [],
+      "notes": []
+    },
     "execution": "local-tools",
     "model_policy": "provider-agnostic",
     "byok": true,
@@ -689,28 +831,34 @@
     "id": "plandex",
     "name": "Plandex",
     "vendor": "Plandex",
-    "status": "active",
+    "status": "legacy",
     "category": "cli-agent",
     "interfaces": ["cli"],
-    "platforms": ["macOS", "Linux", "Windows via WSL", "Docker"],
-    "execution": "hybrid",
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": [],
+      "deployment": ["wsl", "containers"],
+      "integrations": [],
+      "notes": ["Windows support is via WSL"]
+    },
+    "execution": "local-tools",
     "model_policy": "provider-agnostic",
     "byok": true,
     "self_host": true,
     "open_source": true,
-    "license": "AGPL-3.0",
+    "license": "MIT",
     "pricing": {
-      "model": "hybrid",
+      "model": "free",
       "free_tier": true,
-      "starting_price_usd_month": null,
-      "note": "The self-hostable client/server is free; cloud plans and model usage are priced separately."
+      "starting_price_usd_month": 0,
+      "note": "The MIT-licensed client/server is free to self-host; users pay their chosen model providers and infrastructure. Plandex Cloud stopped accepting new users in October 2025."
     },
     "best_for": ["large planned changes", "terminal workflows with explicit plans and versioned changes"],
     "strengths": ["Planning and context management for large repositories", "sandboxed review before apply", "self-host and multi-provider paths"],
-    "limitations": ["Terminal-first", "more ceremony than lightweight edit agents", "cloud and model costs vary"],
+    "limitations": ["Terminal-first", "more ceremony than lightweight edit agents", "Plandex Cloud wound down and the upstream repository has not shipped a release since 2025"],
     "official_sources": [
-      {"label": "Docs", "url": "https://docs.plandex.ai/"},
-      {"label": "Repository", "url": "https://github.com/plandex-ai/plandex"}
+      {"label": "Repository and current hosting status", "url": "https://github.com/plandex-ai/plandex"},
+      {"label": "License", "url": "https://github.com/plandex-ai/plandex/blob/main/LICENSE"}
     ],
     "last_verified": "2026-08-04"
   },
@@ -721,7 +869,13 @@
     "status": "active",
     "category": "ai-editor",
     "interfaces": ["desktop", "ide", "cli", "web", "mobile", "api"],
-    "platforms": ["Windows", "macOS", "Linux", "JetBrains", "Managed cloud"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": ["jetbrains"],
+      "deployment": ["managed-cloud"],
+      "integrations": [],
+      "notes": []
+    },
     "execution": "hybrid",
     "model_policy": "curated-multi-model",
     "byok": true,
@@ -751,7 +905,13 @@
     "status": "active",
     "category": "cli-agent",
     "interfaces": ["cli", "api", "ci"],
-    "platforms": ["Windows", "macOS", "Linux"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": [],
+      "deployment": [],
+      "integrations": [],
+      "notes": []
+    },
     "execution": "local-tools",
     "model_policy": "provider-agnostic",
     "byok": true,
@@ -782,7 +942,13 @@
     "status": "active",
     "category": "cloud-agent",
     "interfaces": ["web", "mobile"],
-    "platforms": ["Replit managed workspace"],
+    "platforms": {
+      "operating_systems": [],
+      "editors": [],
+      "deployment": ["managed-workspace"],
+      "integrations": [],
+      "notes": ["Runs in Replit's managed workspace"]
+    },
     "execution": "cloud-agent",
     "model_policy": "vendor-models",
     "byok": false,
@@ -812,7 +978,13 @@
     "status": "discontinued",
     "category": "ide-extension",
     "interfaces": ["ide"],
-    "platforms": ["VS Code family"],
+    "platforms": {
+      "operating_systems": [],
+      "editors": ["vs-code"],
+      "deployment": [],
+      "integrations": [],
+      "notes": []
+    },
     "execution": "local-tools",
     "model_policy": "provider-agnostic",
     "byok": true,
@@ -841,7 +1013,13 @@
     "status": "active",
     "category": "ide-extension",
     "interfaces": ["ide", "web"],
-    "platforms": ["VS Code", "JetBrains", "Sourcegraph Enterprise"],
+    "platforms": {
+      "operating_systems": [],
+      "editors": ["vs-code", "jetbrains"],
+      "deployment": [],
+      "integrations": ["sourcegraph-enterprise"],
+      "notes": []
+    },
     "execution": "hybrid",
     "model_policy": "curated-multi-model",
     "byok": true,
@@ -871,7 +1049,13 @@
     "status": "active",
     "category": "ide-extension",
     "interfaces": ["ide", "cli"],
-    "platforms": ["VS Code", "JetBrains", "Visual Studio", "Eclipse", "other enterprise IDEs"],
+    "platforms": {
+      "operating_systems": [],
+      "editors": ["vs-code", "jetbrains", "visual-studio", "eclipse"],
+      "deployment": [],
+      "integrations": [],
+      "notes": ["Additional enterprise IDE integrations are available"]
+    },
     "execution": "hybrid",
     "model_policy": "curated-multi-model",
     "byok": true,
@@ -879,10 +1063,10 @@
     "open_source": false,
     "license": null,
     "pricing": {
-      "model": "contact-sales",
-      "free_tier": null,
-      "starting_price_usd_month": null,
-      "note": "Current team and enterprise pricing, deployment, and model options should be confirmed with Tabnine; public packaging changes over time."
+      "model": "subscription",
+      "free_tier": false,
+      "starting_price_usd_month": 39,
+      "note": "Code Assistant is $39 per user per month with an annual subscription; Agentic Platform is $59. Tabnine-provided model access can add provider cost plus a handling fee."
     },
     "best_for": ["enterprise-controlled code assistance", "private and isolated deployments"],
     "strengths": ["Broad IDE coverage", "private deployment and governance options", "completion, chat, agent, review, and testing workflows"],
@@ -901,7 +1085,13 @@
     "status": "active",
     "category": "cli-agent",
     "interfaces": ["desktop", "cli", "web"],
-    "platforms": ["Windows", "macOS", "Linux"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": [],
+      "deployment": [],
+      "integrations": [],
+      "notes": []
+    },
     "execution": "hybrid",
     "model_policy": "curated-multi-model",
     "byok": false,
@@ -911,8 +1101,8 @@
     "pricing": {
       "model": "subscription",
       "free_tier": true,
-      "starting_price_usd_month": null,
-      "note": "A free tier and paid individual/team plans exist; current included AI usage and annual/monthly prices should be checked on the official pricing page."
+      "starting_price_usd_month": 20,
+      "note": "Build starts at $20/month on monthly billing ($18/month billed annually) and includes $20 of agent usage; additional usage is pay-as-you-go."
     },
     "best_for": ["AI-native terminal users", "command, debugging, and multi-agent terminal workflows"],
     "strengths": ["Modern terminal plus agents and workflows", "shared terminal knowledge and cloud delegation", "cross-platform desktop support"],
@@ -931,7 +1121,13 @@
     "status": "active",
     "category": "ai-editor",
     "interfaces": ["desktop", "ide", "cli", "web"],
-    "platforms": ["Windows", "macOS", "Linux", "JetBrains", "VS Code", "Vim", "Neovim", "Jupyter"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": ["vs-code", "jetbrains", "vim", "neovim", "jupyter"],
+      "deployment": [],
+      "integrations": [],
+      "notes": []
+    },
     "execution": "hybrid",
     "model_policy": "curated-multi-model",
     "byok": true,
@@ -961,7 +1157,13 @@
     "status": "active",
     "category": "ai-editor",
     "interfaces": ["desktop", "cli"],
-    "platforms": ["Windows", "macOS", "Linux"],
+    "platforms": {
+      "operating_systems": ["windows", "macos", "linux"],
+      "editors": [],
+      "deployment": [],
+      "integrations": [],
+      "notes": []
+    },
     "execution": "local-tools",
     "model_policy": "provider-agnostic",
     "byok": true,

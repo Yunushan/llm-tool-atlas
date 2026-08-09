@@ -20,9 +20,7 @@ corrections are just as valuable as new catalog entries.
 The project intentionally uses only the Python standard library:
 
 ```bash
-python3 scripts/validate_catalog.py
-python3 scripts/render_catalog.py --check
-python3 -m unittest discover -s tests -v
+python scripts/verify.py
 ```
 
 If generated tables are stale, rebuild them:
@@ -31,6 +29,11 @@ If generated tables are stale, rebuild them:
 python3 scripts/render_catalog.py
 ```
 
+The verifier supports Python 3.10 through the current tested release on
+Windows, macOS, and Linux. The scheduled freshness workflow also audits all
+official HTTPS sources with bounded retries; if a network intercept is
+required, provide its trusted PEM bundle with `scripts/audit_links.py --cafile`.
+
 ## Adding a tool, gateway, or model family
 
 - Follow the corresponding JSON schema in `schema/`.
@@ -38,6 +41,9 @@ python3 scripts/render_catalog.py
 - Prefer `null` or a clearly worded `pricing_note` over a guessed value.
 - Add at least one official source and, for pricing claims, a direct pricing
   source.
+- Use the structured `platforms` dimensions and the controlled model modality
+  and capability vocabularies. Explain inherited or non-applicable dimensions
+  in `platforms.notes`.
 - Keep strengths and limitations concrete. Avoid marketing superlatives.
 
 ## Pull requests

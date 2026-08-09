@@ -7,7 +7,9 @@
     "access": ["cloud-platform"],
     "open_weights": false,
     "weight_license": null,
-    "modalities": ["text", "image input", "video input", "document input"],
+    "input_modalities": ["text", "image", "video", "document"],
+    "output_modalities": ["text"],
+    "capabilities": ["code-generation"],
     "context_note": "Nova 2 Lite supports up to 1M input context and 64K output; earlier variants differ.",
     "api_pricing": {
       "input_usd_per_million": 0.3,
@@ -33,7 +35,9 @@
     "access": ["first-party-api", "cloud-platform", "gateway"],
     "open_weights": false,
     "weight_license": null,
-    "modalities": ["text", "image input"],
+    "input_modalities": ["text", "image"],
+    "output_modalities": ["text"],
+    "capabilities": ["code-generation"],
     "context_note": "Current Claude 5 models publish up to 1M context and 128K output; Haiku 4.5 is smaller.",
     "api_pricing": {
       "input_usd_per_million": 5,
@@ -59,8 +63,10 @@
     "access": ["first-party-api", "cloud-platform", "gateway", "download"],
     "open_weights": true,
     "weight_license": "Mixed: Apache-2.0, CC-BY-NC-4.0, and proprietary managed terms by model",
-    "modalities": ["text", "image input on selected models"],
-    "context_note": "Current representatives range from 128K to 256K context and have model-specific output limits.",
+    "input_modalities": ["text", "image"],
+    "output_modalities": ["text"],
+    "capabilities": ["code-generation"],
+    "context_note": "Current representatives range from 128K to 256K context and have model-specific output limits; image input is available only on selected representatives.",
     "api_pricing": {
       "input_usd_per_million": 2.5,
       "cached_input_usd_per_million": null,
@@ -86,7 +92,9 @@
     "access": ["first-party-api", "cloud-platform", "gateway", "download"],
     "open_weights": true,
     "weight_license": "MIT",
-    "modalities": ["text"],
+    "input_modalities": ["text"],
+    "output_modalities": ["text"],
+    "capabilities": ["code-generation"],
     "context_note": "V4 Pro and Flash publish 1M context with up to 384K output.",
     "api_pricing": {
       "input_usd_per_million": 0.435,
@@ -113,7 +121,9 @@
     "access": ["first-party-api", "cloud-platform", "gateway"],
     "open_weights": false,
     "weight_license": null,
-    "modalities": ["text", "image input", "video input", "audio input", "PDF input"],
+    "input_modalities": ["text", "image", "video", "audio", "document"],
+    "output_modalities": ["text"],
+    "capabilities": ["code-generation"],
     "context_note": "Representative Gemini 3.x models publish 1,048,576 input context and 65,536 output.",
     "api_pricing": {
       "input_usd_per_million": 1.5,
@@ -140,7 +150,9 @@
     "access": ["cloud-platform", "gateway", "download"],
     "open_weights": true,
     "weight_license": "Llama 4 Community License (custom, non-OSI)",
-    "modalities": ["text", "image input"],
+    "input_modalities": ["text", "image"],
+    "output_modalities": ["text"],
+    "capabilities": ["code-generation"],
     "context_note": "Maverick publishes 1M context; Scout publishes up to 10M context under supported deployment conditions.",
     "api_pricing": null,
     "coding_notes": ["Useful for self-hosted and customizable multimodal workflows", "large context can support repository retrieval when the serving stack can sustain it"],
@@ -161,7 +173,9 @@
     "access": ["first-party-api", "cloud-platform", "gateway", "download"],
     "open_weights": true,
     "weight_license": "Custom MiniMax Community License for M3; M2.7 has noncommercial restrictions without authorization",
-    "modalities": ["text", "image input", "video input"],
+    "input_modalities": ["text", "image", "video"],
+    "output_modalities": ["text"],
+    "capabilities": ["code-generation"],
     "context_note": "M3 publishes 1M context; M2.7 publishes 204,800 context.",
     "api_pricing": {
       "input_usd_per_million": 0.3,
@@ -188,8 +202,10 @@
     "access": ["first-party-api", "cloud-platform", "gateway", "download"],
     "open_weights": true,
     "weight_license": "Mixed: Modified MIT, Apache-2.0, and proprietary by model",
-    "modalities": ["text", "image input on selected models"],
-    "context_note": "Medium 3.5 and Small 4 publish 256K context; Codestral publishes 128K.",
+    "input_modalities": ["text", "image"],
+    "output_modalities": ["text"],
+    "capabilities": ["code-generation"],
+    "context_note": "Medium 3.5 and Small 4 publish 256K context; Codestral publishes 128K. Image input is available only on selected representatives.",
     "api_pricing": {
       "input_usd_per_million": 1.5,
       "cached_input_usd_per_million": null,
@@ -216,7 +232,9 @@
     "access": ["first-party-api", "cloud-platform", "gateway", "download"],
     "open_weights": true,
     "weight_license": "Custom Kimi license for K3; Modified MIT for K2.7 Code",
-    "modalities": ["text", "image input", "video input"],
+    "input_modalities": ["text", "image", "video"],
+    "output_modalities": ["text"],
+    "capabilities": ["code-generation"],
     "context_note": "Kimi K3 publishes 1,048,576 context; K2.7 Code publishes 256K.",
     "api_pricing": {
       "input_usd_per_million": 3,
@@ -243,7 +261,9 @@
     "access": ["first-party-api", "cloud-platform", "gateway", "download"],
     "open_weights": true,
     "weight_license": "OpenMDW-1.1 or NVIDIA Nemotron Open Model License by checkpoint",
-    "modalities": ["text", "code"],
+    "input_modalities": ["text", "image", "video"],
+    "output_modalities": ["text"],
+    "capabilities": ["code-generation"],
     "context_note": "The family publishes up to 1M context depending on checkpoint and deployment.",
     "api_pricing": {
       "input_usd_per_million": 0.15,
@@ -258,6 +278,7 @@
       {"label": "Family", "url": "https://developer.nvidia.com/topics/ai/nemotron"},
       {"label": "Ultra model card", "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16"},
       {"label": "Super model card", "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16"},
+      {"label": "AWS Bedrock pricing", "url": "https://aws.amazon.com/bedrock/pricing/"},
       {"label": "NIM pricing", "url": "https://docs.api.nvidia.com/nim/docs/product"}
     ],
     "last_verified": "2026-08-04"
@@ -270,15 +291,24 @@
     "access": ["first-party-api", "cloud-platform"],
     "open_weights": false,
     "weight_license": null,
-    "modalities": ["text", "image input", "computer use on supported surfaces"],
+    "input_modalities": ["text", "image"],
+    "output_modalities": ["text"],
+    "capabilities": ["code-generation", "computer-use"],
     "context_note": "Availability, modalities, and limits depend on the Codex/ChatGPT surface and API access shown in the official model matrix.",
-    "api_pricing": null,
+    "api_pricing": {
+      "input_usd_per_million": 5,
+      "cached_input_usd_per_million": 0.5,
+      "output_usd_per_million": 30,
+      "model": "GPT-5.6 Sol",
+      "note": "First-party standard token rates; prompts above 272K tokens, cache writes, Batch, Flex, Priority, data residency, and tools can use different rates."
+    },
     "coding_notes": ["Sol is the flagship for complex coding, computer use, research, and cybersecurity", "Terra is the balanced everyday model", "Luna targets fast, repeatable, high-volume work"],
     "limitations": ["Codex subscription credits and API token pricing are separate", "higher reasoning effort, Max, and Ultra consume more time or usage", "availability is plan- and surface-dependent"],
     "official_sources": [
       {"label": "Codex models", "url": "https://learn.chatgpt.com/docs/models"},
       {"label": "Codex pricing", "url": "https://learn.chatgpt.com/docs/pricing"},
-      {"label": "API models", "url": "https://developers.openai.com/api/docs/models"}
+      {"label": "API models", "url": "https://developers.openai.com/api/docs/models"},
+      {"label": "GPT-5.6 Sol API pricing", "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol"}
     ],
     "last_verified": "2026-08-04"
   },
@@ -290,15 +320,24 @@
     "access": ["first-party-api", "cloud-platform", "gateway", "download"],
     "open_weights": true,
     "weight_license": "Apache-2.0 for Qwen3-Coder; hosted flagship variants have no matching released weights",
-    "modalities": ["text", "code"],
+    "input_modalities": ["text", "image", "video"],
+    "output_modalities": ["text"],
+    "capabilities": ["code-generation"],
     "context_note": "Hosted Qwen3.8/3.7 representatives publish 1M context; Qwen3-Coder has 256K native context and supports 1M extrapolation.",
-    "api_pricing": null,
+    "api_pricing": {
+      "input_usd_per_million": 0.4,
+      "cached_input_usd_per_million": null,
+      "output_usd_per_million": 1.6,
+      "model": "Qwen3.7-Plus (Singapore international service, up to 256K input)",
+      "note": "List price; prompts above 256K use the higher long-context tier. Thinking and non-thinking output share this price in the cited tier."
+    },
     "coding_notes": ["Hosted Max/Plus models target long-context tools and coding", "Qwen3-Coder is an Apache-2.0 agentic coding checkpoint", "Flash targets inexpensive high-volume work"],
     "limitations": ["Qwen3.8 launched shortly before this snapshot", "official regions use different CNY and USD price tables", "Qwen3-Coder is extremely large to self-host"],
     "official_sources": [
       {"label": "Qwen3.8-Max", "url": "https://help.aliyun.com/zh/model-studio/qwen3-8-max"},
       {"label": "Model Studio pricing", "url": "https://help.aliyun.com/zh/model-studio/model-pricing"},
       {"label": "International pricing", "url": "https://www.alibabacloud.com/help/en/model-studio/model-pricing"},
+      {"label": "Vision model capabilities", "url": "https://www.alibabacloud.com/help/en/model-studio/vision-model"},
       {"label": "Qwen3-Coder model card", "url": "https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct"}
     ],
     "last_verified": "2026-08-04"
@@ -311,7 +350,9 @@
     "access": ["first-party-api", "cloud-platform", "gateway"],
     "open_weights": false,
     "weight_license": null,
-    "modalities": ["text", "image input"],
+    "input_modalities": ["text", "image"],
+    "output_modalities": ["text"],
+    "capabilities": ["code-generation"],
     "context_note": "Grok 4.5 publishes 500K context, Grok 4.3 publishes 1M, and Grok Build 0.1 publishes 256K.",
     "api_pricing": {
       "input_usd_per_million": 1.25,
@@ -338,7 +379,9 @@
     "access": ["first-party-api", "cloud-platform", "gateway", "download"],
     "open_weights": true,
     "weight_license": "MIT for GLM-5.2 and downloadable GLM-4.7-Flash; hosted aliases vary",
-    "modalities": ["text", "code"],
+    "input_modalities": ["text"],
+    "output_modalities": ["text"],
+    "capabilities": ["code-generation"],
     "context_note": "GLM-5.2 publishes 1M context and 128K output; Turbo and Flash variants publish 200K context.",
     "api_pricing": {
       "input_usd_per_million": 1.4,
