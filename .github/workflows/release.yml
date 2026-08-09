@@ -63,7 +63,11 @@ jobs:
       - name: Attest release artifacts
         uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
         with:
-          subject-path: "dist/*"
+          subject-path: |
+            dist/llm-tool-atlas-data-${{ github.ref_name }}.manifest.json
+            dist/llm-tool-atlas-data-${{ github.ref_name }}.tar.gz
+            dist/llm-tool-atlas-data-${{ github.ref_name }}.zip
+            dist/SHA256SUMS
 
       - name: Publish GitHub Release
         env:
@@ -71,7 +75,11 @@ jobs:
           RELEASE_TAG: ${{ github.ref_name }}
         shell: bash
         run: |
-          gh release create "$RELEASE_TAG" dist/* \
+          gh release create "$RELEASE_TAG" \
+            "dist/llm-tool-atlas-data-${RELEASE_TAG}.manifest.json" \
+            "dist/llm-tool-atlas-data-${RELEASE_TAG}.tar.gz" \
+            "dist/llm-tool-atlas-data-${RELEASE_TAG}.zip" \
+            "dist/SHA256SUMS" \
             --verify-tag \
             --draft \
             --generate-notes \

@@ -17,16 +17,29 @@ The initial score was fixed at 56/100 from the independent repository audit on
 release-process gaps; a final 100/100 score is not honest until the hosted
 GitHub controls and at least one observed release are enabled and verified.
 
-## Current worktree score
+## Current score
 
-As of 2026-08-09, the uncommitted worktree earns a **91/100 local candidate
-score**: code quality and tests **35/35**, security and supply chain **21/25**,
-and release and operations **35/40**. The live default branch remains at the
-previous **56/100** until this work is reviewed and published. The nine-point
-gap is deliberately reserved for hosted settings and observed evidence rather
-than inferred from local YAML: protected `main` and `v*` refs, GitHub security
-settings, a passing hosted matrix/CodeQL/freshness run, and a published
-attested release.
+As of 2026-08-09, the current worktree earns a **91/100 local candidate score**:
+code quality and tests **35/35**, security and supply chain **21/25**, and
+release and operations **35/40**. The hardening commits are present on
+`origin/main`, and hosted evidence now includes successful validation and
+CodeQL runs plus a successful freshness/link-audit run with a retained JSON
+artifact. The score is still not 100 because the hosted closure requirements
+below are not yet all enabled and evidenced.
+
+The nine-point gap is deliberately reserved for hosted settings and observed
+release evidence rather than inferred from local YAML: protected `main` and
+`v*` refs, GitHub security settings, and a published attested release.
+
+### Hosted evidence snapshot
+
+- [Validation matrix on current `main`](https://github.com/Yunushan/llm-tool-atlas/actions/runs/31302656167)
+  passed Ubuntu/Python 3.10, Ubuntu/Python 3.14, Windows/Python 3.14,
+  macOS/Python 3.14, and the required `catalog` gate.
+- [CodeQL on current `main`](https://github.com/Yunushan/llm-tool-atlas/actions/runs/31302656199)
+  completed successfully.
+- [Freshness and official-link audit on current `main`](https://github.com/Yunushan/llm-tool-atlas/actions/runs/31303083521)
+  completed successfully and retained `official-link-audit-31303083521`.
 
 ## Local closure checklist
 

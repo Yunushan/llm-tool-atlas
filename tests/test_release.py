@@ -74,6 +74,30 @@ class ReleaseMetadataTests(unittest.TestCase):
             workflow,
         )
 
+    def test_release_workflow_attests_and_publishes_only_expected_assets(self) -> None:
+        workflow = (ROOT / ".github" / "workflows" / "release.yml").read_text(
+            encoding="utf-8"
+        )
+        self.assertNotIn("dist/*", workflow)
+        self.assertNotIn('subject-path: "dist/*"', workflow)
+        self.assertNotIn('gh release create "$RELEASE_TAG" dist/*', workflow)
+        github_ref = "${{ github.ref_name }}"
+        release_ref = "${RELEASE_TAG}"
+        for suffix in (
+            ".manifest.json",
+            ".tar.gz",
+            ".zip",
+        ):
+            self.assertIn(
+                f"dist/llm-tool-atlas-data-{github_ref}{suffix}",
+                workflow,
+            )
+            self.assertIn(
+                f'"dist/llm-tool-atlas-data-{release_ref}{suffix}"',
+                workflow,
+            )
+        self.assertIn('"dist/SHA256SUMS"', workflow)
+
     def test_repository_release_metadata_is_consistent(self) -> None:
         metadata, errors = CHECK_RELEASE.validate_release(ROOT)
         self.assertEqual(errors, [])

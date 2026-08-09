@@ -13,6 +13,8 @@ All notable changes to this project will be documented here.
   and recovery guidance.
 - Corrected sourced pricing, licensing, platform, lifecycle, and model-capability
   records and split model inputs, outputs, and capabilities into controlled fields.
+- Restricted release attestations and uploads to the four expected assets so
+  stale files cannot leak into a published release.
 
 ## [0.1.0] - 2026-08-04
 
