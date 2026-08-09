@@ -52,6 +52,17 @@ class ReleaseMetadataTests(unittest.TestCase):
                     f"un-pinned action at {workflow.relative_to(ROOT)}:{line_number}",
                 )
 
+    def test_codeql_components_use_one_pinned_release(self) -> None:
+        workflow = (ROOT / ".github" / "workflows" / "codeql.yml").read_text(
+            encoding="utf-8"
+        )
+        refs = re.findall(
+            r"uses:\s+github/codeql-action/(?:init|analyze)@([0-9a-f]{40})",
+            workflow,
+        )
+        self.assertEqual(len(refs), 2)
+        self.assertEqual(len(set(refs)), 1)
+
     def test_release_workflow_avoids_ref_injection_and_requires_main_ancestry(self) -> None:
         workflow = (ROOT / ".github" / "workflows" / "release.yml").read_text(
             encoding="utf-8"
